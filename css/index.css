@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+input,
+button,
+textarea,
+select {
+  margin: 0;
+  font: inherit;
+}
+
+.app.light {
+  --bg-color: #5860a1;
+  --inverted-bg-color: #1e223f;
+  --primary-color: rgb(159 187 159);
+  --secondary-color: rgb(80 85 87);
+  --inverted-primary-color: rgb(136 175 136);
+  --inverted-secondary-color: rgb(230 230 230);
+}
+
+.app.dark {
+  --bg-color: #1e223f;
+  --inverted-bg-color: #5860a1;
+  --primary-color: rgb(136 175 136);
+  --secondary-color: rgb(230 230 230);
+  --inverted-primary-color: rgb(159 187 159);
+  --inverted-secondary-color: rgb(255 255 255);
+}
+
+:root {
+  --font-family-main: consolas, "Times New Roman", serif;
+  --font-size-m: 16px;
+  --font-line-m: 24px;
+  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+  --font-size-l: 24px;
+  --font-line-l: 32px;
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+  --navbar-height: 50px;
+  --sidebar-width: 300px;
+  --sidebar-width-collapsed: 80px;
+}
+
+.app {
+  font: var(--font-m);
+  background: var(--bg-color);
+  color: var(--primary-color);
+  min-height: 100vh;
+}
+
+.content-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 20px;
+}

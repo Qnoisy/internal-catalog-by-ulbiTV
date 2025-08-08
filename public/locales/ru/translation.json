@@ -1,3 +1,7 @@
 {
-	"language": "Русский"
+  "language": "Русский",
+  "page not found": "страница не найдена",
+  "an error occurred": "произошла ошибка",
+  "reload page": "Обновить страницу",
+  "throw error": "бросить ошибку"
 }
