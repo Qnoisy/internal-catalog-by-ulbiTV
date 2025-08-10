@@ -5,21 +5,19 @@ interface LoaderProps {
 	className?: string;
 }
 
-export const Loader: React.FC<LoaderProps> = ({ className }) => {
-	return (
-		<div className='lds-default'>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-	);
-};
+export const Loader: React.FC<LoaderProps> = ({ className }) => (
+	<div className='lds-default'>
+		<div />
+		<div />
+		<div />
+		<div />
+		<div />
+		<div />
+		<div />
+		<div />
+		<div />
+		<div />
+		<div />
+		<div />
+	</div>
+);

@@ -2,33 +2,36 @@ module.exports = {
 	env: {
 		browser: true,
 		es2021: true,
-		jest: true,
+		jest: true
 	},
 	extends: [
 		'plugin:react/recommended',
 		'airbnb',
-		'prettier',
 		'plugin:i18next/recommended',
+		'plugin:prettier/recommended' // ← включает eslint-config-prettier и правило prettier/prettier
 	],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
-		ecmaFeatures: {
-			jsx: true,
-		},
+		ecmaFeatures: { jsx: true },
 		ecmaVersion: 'latest',
-		sourceType: 'module',
+		sourceType: 'module'
 	},
-	plugins: ['react', '@typescript-eslint', 'i18next'],
+	plugins: ['react', '@typescript-eslint', 'i18next', 'prettier'],
 	rules: {
-		'editor.tabSize': 4,
-		'editor.insertSpaces': true,
-		'react/jsx-indent': [2, 4],
-		'react/jsx-indent-props': [2, 4],
-		indent: [2, 4],
-		'react/jsx-filename-extension': [
-			2,
-			{ extensions: ['.js', '.jsx', '.tsx'] },
-		],
+		// Делегируем стиль форматированию Prettier
+		'prettier/prettier': 'error',
+
+		// Табы в коде и JSX
+		'no-tabs': 'off',
+		indent: ['error', 'tab'],
+		'react/jsx-indent': ['error', 'tab'],
+		'react/jsx-indent-props': ['error', 'tab'],
+
+		// Не спорим о запятых с Prettier
+		'comma-dangle': 'off',
+
+		// Твои правила как были
+		'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
 		'import/no-unresolved': 'off',
 		'import/prefer-default-export': 'off',
 		'no-unused-vars': 'warn',
@@ -40,10 +43,28 @@ module.exports = {
 		'import/extensions': 'off',
 		'import/no-extraneous-dependencies': 'off',
 		'no-underscore-dangle': 'off',
-		'i18next/no-literal-string': ['error', { markupOnly: true }],
-		'max-len': ['error', { ignoreComments: true, code: 100 }],
+		'i18next/no-literal-string': [
+			'error',
+			{
+				markupOnly: true,
+				ignoreAttribute: ['data-testid', 'to']
+			}
+		],
+		'max-len': [
+			'error',
+			{ code: 100, ignoreComments: true, ignoreStrings: true, ignoreTemplateLiterals: true }
+		],
+
+		// Снимаем ещё пару частых конфликтов с Prettier
+		'implicit-arrow-linebreak': 'off',
+		'react/jsx-one-expression-per-line': 'off',
+		'operator-linebreak': 'off'
 	},
-	globals: {
-		__IS_DEV__: true,
-	},
+	globals: { __IS_DEV__: true },
+	overrides: [
+		{
+			files: ['**/src/**/*.test.{ts,tsx}'],
+			rules: { 'i18next/no-literal-string': 'off' }
+		}
+	]
 };

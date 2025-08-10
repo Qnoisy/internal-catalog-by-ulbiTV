@@ -7,11 +7,16 @@
 		"start": "webpack serve --env port=3000",
 		"build:prod": "webpack --env mode=production",
 		"build:dev": "webpack --env mode=development",
-		"lint:ts": " eslint \"**/*.{ts,tsx}\"",
-		"lint:ts:fix": " eslint \"**/*.{ts,tsx}\" --fix",
+		"lint:ts": "eslint \"**/*.{ts,tsx}\"",
+		"lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
 		"lint:scss": "stylelint \"**/*.scss\"",
 		"lint:scss:fix": "stylelint \"**/*.scss\" --fix",
-		"unit": "jest --config ./config/jest/jest.config.ts"
+		"storybook": "start-storybook -p 6006 -c ./config/storybook",
+		"build-storybook": "build-storybook -c ./config/storybook",
+		"test:unit": "jest --config ./config/jest/jest.config.ts",
+		"test:ui": "npx loki test",
+		"test:ui:ok": "npx loki approve",
+		"test:ui:ci": "loki --requireReference --reactUri file:./storybook-static"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.17.5",
@@ -46,9 +51,11 @@
 		"css-loader": "^6.6.0",
 		"eslint": "^8.10.0",
 		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-prettier": "^8.10.0",
 		"eslint-plugin-i18next": "^5.1.2",
 		"eslint-plugin-import": "^2.25.4",
 		"eslint-plugin-jsx-a11y": "^6.5.1",
+		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-react": "^7.29.2",
 		"eslint-plugin-react-hooks": "^4.3.0",
 		"file-loader": "^6.2.0",
@@ -86,6 +93,19 @@
 		"react-i18next": "^11.15.5",
 		"react-redux": "^7.2.6",
 		"react-router-dom": "^6.2.1"
+	},
+	"loki": {
+		"configurations": {
+			"chrome.laptop": {
+				"target": "chrome.app",
+				"width": 1366,
+				"height": 768
+			},
+			"chrome.iphone7": {
+				"target": "chrome.app",
+				"preset": "iPhone 7"
+			}
+		}
 	},
 	"keywords": [],
 	"author": "",
