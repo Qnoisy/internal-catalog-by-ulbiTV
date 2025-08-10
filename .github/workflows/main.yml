@@ -1,9 +1,9 @@
 name: linting, testing, building
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
@@ -29,3 +29,5 @@ jobs:
         run: npm run test:unit
       - name: build storybook
         run: npm run storybook:build
+      - name: screenshot testing
+        run: npm run test:ui:ci
