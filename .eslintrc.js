@@ -52,7 +52,7 @@ module.exports = {
 		],
 		'max-len': [
 			'error',
-			{ code: 100, ignoreComments: true, ignoreStrings: true, ignoreTemplateLiterals: true }
+			{ code: 110, ignoreComments: true, ignoreStrings: true, ignoreTemplateLiterals: true }
 		],
 
 		// Снимаем ещё пару частых конфликтов с Prettier
