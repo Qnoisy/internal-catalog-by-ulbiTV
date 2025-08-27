@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { Suspense } from 'react';
 import { Navbar } from 'widgets/NavBar';
 import { Sidebar } from 'widgets/SideBar';
 import { classNames } from '../shared/lib/classNames/classNames';
@@ -7,7 +7,6 @@ import { useTheme } from './providers/ThemeProvider';
 
 const App = () => {
 	const { theme } = useTheme();
-	const [isOpen, setIsOpen] = useState(false);
 
 	return (
 		<div className={classNames('app', {}, [theme])}>

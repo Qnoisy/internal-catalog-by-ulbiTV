@@ -21,7 +21,7 @@ export const Navbar = ({ className }: NavbarProps) => {
 				<Button theme={ButtonTheme.CLEAR} onClick={onTogleModal}>
 					toggle
 				</Button>
-				<Modal isOpen={isAuthModal} onClose={() => setIsAuthModal(false)}>
+				<Modal isOpen={isAuthModal} onClose={onTogleModal}>
 					<div>
 						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, reiciendis?
 					</div>
