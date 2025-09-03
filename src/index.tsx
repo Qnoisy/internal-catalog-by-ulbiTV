@@ -1,4 +1,5 @@
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
+import { StoreProvider } from 'app/providers/StoreProvider';
 import { ThemeProvider } from 'app/providers/ThemeProvider';
 import 'app/styles/index.scss';
 import { render } from 'react-dom';
@@ -10,7 +11,9 @@ render(
 	<BrowserRouter>
 		<ErrorBoundary>
 			<ThemeProvider>
-				<App />
+				<StoreProvider>
+					<App />
+				</StoreProvider>
 			</ThemeProvider>
 		</ErrorBoundary>
 	</BrowserRouter>,
