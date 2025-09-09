@@ -4,5 +4,8 @@
   "an error occurred": "an error occurred",
   "reload page": "Reload page",
   "throw error": "throw error",
-  "shortLang": "en"
+  "shortLang": "en",
+  "LogIn": "LogIn",
+  "Enter username": "Enter username",
+  "Enter password": "Enter password"
 }

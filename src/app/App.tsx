@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { Navbar } from 'widgets/NavBar';
 import { Sidebar } from 'widgets/SideBar';
 import { classNames } from '../shared/lib/classNames/classNames';
+
 import { AppRouter } from './providers/router';
 import { useTheme } from './providers/ThemeProvider';
 

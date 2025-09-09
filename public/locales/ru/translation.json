@@ -4,5 +4,8 @@
   "an error occurred": "произошла ошибка",
   "reload page": "Обновить страницу",
   "throw error": "бросить ошибку",
-  "shortLang": "ru"
+  "shortLang": "ru",
+  "LogIn": "Войти",
+  "Enter username": "Введите имя",
+  "Enter password": "Введите пароль"
 }
