@@ -7,5 +7,9 @@
   "shortLang": "ru",
   "LogIn": "Войти",
   "Enter username": "Введите имя",
-  "Enter password": "Введите пароль"
+  "Enter password": "Введите пароль",
+  "Registration form": "Форма регистрации",
+  "You write uncorrect username or password": "Вы ввели неверный логин или пароль",
+  "Logout": "Выйти",
+  "Login": "Войти"
 }

@@ -9,10 +9,14 @@ i18n
 	.use(initReactI18next)
 	.init({
 		fallbackLng: 'ru',
+		supportedLngs: ['ru', 'en'],
+		ns: ['translation', 'main', 'about', 'profile'],
+		defaultNS: 'translation',
+		backend: {
+			loadPath: '/locales/{{lng}}/{{ns}}.json'
+		},
 		debug: __IS_DEV__,
-		interpolation: {
-			escapeValue: false // not needed for react as it escapes by default
-		}
+		interpolation: { escapeValue: false }
 	});
 
 export default i18n;

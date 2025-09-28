@@ -6,9 +6,10 @@ import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/
 import { loginByUsername } from 'features/AuthByUsername/services/loginByUsername/loginByUsername';
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
@@ -16,14 +17,15 @@ import styles from './LoginForm.module.scss';
 
 export interface LoginFormProps {
 	className?: string;
+	onSuccess: () => void;
 }
 
 const initialReducers: ReducerList = {
 	login: loginReducer
 };
 
-const LoginForm: React.FC<LoginFormProps> = memo(({ className }) => {
-	const dispatch = useDispatch();
+const LoginForm: React.FC<LoginFormProps> = memo(({ className, onSuccess }) => {
+	const dispatch = useAppDispatch();
 	const username = useSelector(getLoginUsername);
 	const password = useSelector(getLoginPassword);
 	const isLoading = useSelector(getLoginIsLoading);
@@ -43,16 +45,21 @@ const LoginForm: React.FC<LoginFormProps> = memo(({ className }) => {
 		[dispatch]
 	);
 
-	const onLoginClick = useCallback(() => {
-		dispatch(loginByUsername({ username, password }));
+	const onLoginClick = useCallback(async () => {
+		const result = await dispatch(loginByUsername({ username, password }));
+		if ((result.meta.requestStatus = 'fulfilled')) {
+			onSuccess();
+		}
 	}, [dispatch, username, password]);
 
 	const { t } = useTranslation();
 	return (
 		<DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
 			<div className={classNames(styles.LoginForm, {}, [className])}>
-				<Text title={t('Форма авторизации')} />
-				{error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />}
+				<Text title={t('Registration form')} />
+				{error && (
+					<Text text={t('You write uncorrect username or password')} theme={TextTheme.ERROR} />
+				)}
 				<Input
 					placeholder={t('Enter username')}
 					type='text'

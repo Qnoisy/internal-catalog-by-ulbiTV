@@ -7,5 +7,9 @@
   "shortLang": "en",
   "LogIn": "LogIn",
   "Enter username": "Enter username",
-  "Enter password": "Enter password"
+  "Enter password": "Enter password",
+  "Registration form": "Registration form",
+  "You write uncorrect username or password": "You write uncorrect username or password",
+  "Logout": "Logout",
+  "Login": "Login"
 }
