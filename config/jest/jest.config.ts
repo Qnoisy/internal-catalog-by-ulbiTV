@@ -7,7 +7,8 @@ import path from 'path';
 
 export default {
 	globals: {
-		__IS_DEV__: true
+		__IS_DEV__: true,
+		__APi__: ''
 	},
 	// All imported modules in your tests should be mocked automatically
 	// automock: false,
