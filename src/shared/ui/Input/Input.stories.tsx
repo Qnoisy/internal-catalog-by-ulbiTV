@@ -13,6 +13,6 @@ const Template: ComponentStory<typeof Input> = args => <Input {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-	value: 123,
+	value: '123',
 	placeholder: 'test'
 };

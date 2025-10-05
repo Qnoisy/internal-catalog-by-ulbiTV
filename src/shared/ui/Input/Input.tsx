@@ -57,7 +57,7 @@ export const Input: React.FC<InputProps> = memo(props => {
 					type={type}
 					value={value}
 					onChange={onChangeHandler}
-					className={classNames(styles.Input, {}, [className])}
+					className={classNames(styles.Input, {}, [])}
 					onSelect={onSelect}
 					{...otherProps}
 				/>

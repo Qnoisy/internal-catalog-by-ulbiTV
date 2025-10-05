@@ -1,5 +1,12 @@
-import React, { ReactChild, useCallback, useEffect, useRef, useState } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import React, {
+	MutableRefObject,
+	ReactChild,
+	useCallback,
+	useEffect,
+	useRef,
+	useState
+} from 'react';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import styles from './Modal.module.scss';
 
@@ -16,9 +23,9 @@ export const Modal: React.FC<ModalProps> = (props: ModalProps) => {
 	const { className, isOpen, onClose, children, lazy } = props;
 	const [isMount, setIsMount] = useState(false);
 	const [isClosing, setIsClosing] = useState(false);
-	const timeRef = useRef<ReturnType<typeof setTimeout>>();
+	const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
-	const mods: Record<string, boolean> = {
+	const mods: Mods = {
 		[styles.opened]: isOpen,
 		[styles.isClosing]: isClosing
 	};
@@ -26,7 +33,7 @@ export const Modal: React.FC<ModalProps> = (props: ModalProps) => {
 	const handlerClose = useCallback(() => {
 		if (onClose) {
 			setIsClosing(true);
-			timeRef.current = setTimeout(() => {
+			timerRef.current = setTimeout(() => {
 				onClose();
 				setIsClosing(false);
 			}, ANIMATION_DELAY);
@@ -54,8 +61,8 @@ export const Modal: React.FC<ModalProps> = (props: ModalProps) => {
 		}
 
 		return () => {
-			removeEventListener('keydown', onKeyDown);
-			clearInterval(timeRef.current);
+			clearTimeout(timerRef.current);
+			window.removeEventListener('keydown', onKeyDown);
 		};
 	}, [isOpen, onKeyDown]);
 

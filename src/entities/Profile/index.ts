@@ -1,6 +1,4 @@
-export { profileActions, profileReducer } from './model/slice/profileSlice';
-
-export { profileSlice } from './model/slice/profileSlice';
-
+export { profileActions, profileReducer, profileSlice } from './model/slice/profileSlice';
 export { ProfileShema } from './model/types/profile';
-export { Profile } from './ui/Profile';
+export { fetchProfileData } from './service/fetchProfileData/fetchProfileData';
+export { ProfileCard } from './ui/ProfileCard/ProfileCard';

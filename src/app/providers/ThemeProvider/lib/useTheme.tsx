@@ -10,9 +10,9 @@ const useTheme = (): UseThemeResult => {
 	const { theme, setTheme } = useContext(ThemeContext);
 
 	const toggleTheme = useCallback(() => {
-		setTheme(theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
+		setTheme?.(theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
 	}, [theme, setTheme]);
-	return { theme, toggleTheme };
+	return { theme: theme || Theme.LIGHT, toggleTheme };
 };
 
 export default useTheme;
