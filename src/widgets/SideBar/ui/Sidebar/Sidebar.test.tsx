@@ -1,19 +1,18 @@
 import { fireEvent, screen } from '@testing-library/react';
-
 import { componentRender } from 'shared/lib/tests/сomponentRender';
 import { Sidebar } from './Sidebar';
 
-describe('Sidebar test', () => {
-	test('Sidebar render test', () => {
+describe('Sidebar', () => {
+	test('with only first param', () => {
 		componentRender(<Sidebar />);
-		const sibebar = screen.getByTestId('sidebar');
-		expect(sibebar).toBeInTheDocument();
+		expect(screen.getByTestId('sidebar')).toBeInTheDocument();
 	});
-	test('Sidebar toggle test', () => {
+
+	test('test toggle', () => {
 		componentRender(<Sidebar />);
-		const sibebar = screen.getByTestId('sidebar');
-		const toggleButton = screen.getByTestId('sidebar-toggle');
-		fireEvent.click(toggleButton);
-		expect(sibebar).toHaveClass('collapsed');
+		const toggleBtn = screen.getByTestId('sidebar-toggle');
+		expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+		fireEvent.click(toggleBtn);
+		expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
 	});
 });

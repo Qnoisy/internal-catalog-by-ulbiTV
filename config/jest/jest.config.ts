@@ -6,10 +6,31 @@
 import path from 'path';
 
 export default {
-	globals: {
-		__IS_DEV__: true,
-		__APi__: ''
-	},
+	// 1) убери/не используй здесь "globals" для таких констант — лучше задать их в setupFiles
+	// globals: {
+	//   __IS_DEV__: true,
+	//   __APi__: '' // <- тут ещё и опечатка
+	// },
+	clearMocks: true,
+	testEnvironment: 'jsdom',
+	coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+	moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+	moduleDirectories: ['node_modules'],
+	modulePaths: ['<rootDir>src'],
+	testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
+	rootDir: '../../',
+
+	// 2) ДОБАВЬ setupFiles (выполняются раньше всего)
+	setupFiles: ['<rootDir>/config/jest/jest.globals.ts'],
+
+	// 3) Оставь твой файл окружения после фреймворка
+	setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
+
+	moduleNameMapper: {
+		'\\.(s?css)$': 'identity-obj-proxy',
+		'\\.svg': path.resolve(__dirname, 'jestEmprtyComponent.tsx')
+	}
+
 	// All imported modules in your tests should be mocked automatically
 	// automock: false,
 
@@ -20,23 +41,6 @@ export default {
 	// cacheDirectory: "C:\\Users\\tim\\AppData\\Local\\Temp\\jest",
 
 	// Automatically clear mock calls, instances and results before every test
-	clearMocks: true,
-	testEnvironment: 'jsdom',
-	coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
-	moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
-	moduleDirectories: ['node_modules'],
-	modulePaths: ['<rootDir>src'],
-	testMatch: [
-		// Обнаружил разницу между МАК ОС и ВИНДОУС!!!
-		'<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
-	],
-	rootDir: '../../',
-	setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
-	moduleNameMapper: {
-		'\\.(s?css)$': 'identity-obj-proxy',
-		'\\.svg': path.resolve(__dirname, 'jestEmprtyComponent.tsx')
-	}
-
 	// Indicates whether the coverage information should be collected while executing the test
 	// collectCoverage: false,
 

@@ -1,8 +1,8 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getLoginUsername } from './getLoginUsername';
 
-describe('getLoginError.test', () => {
-	test('should return username', () => {
+describe('getLoginUsername.test', () => {
+	test('should return value', () => {
 		const state: DeepPartial<StateSchema> = {
 			login: {
 				username: 'Vasya'
@@ -12,6 +12,6 @@ describe('getLoginError.test', () => {
 	});
 	test('should work without state', () => {
 		const state: DeepPartial<StateSchema> = {};
-		expect(getLoginUsername(state as StateSchema)).toEqual(undefined);
+		expect(getLoginUsername(state as StateSchema)).toEqual('');
 	});
 });
