@@ -3,5 +3,9 @@
   "profile": "Profile",
   "edit": "edit",
   "profile.your firstname": "your firstname",
-  "profile.your lastname": "your lastname"
+  "profile.your lastname": "your lastname",
+  "profile.cancel": "cancel",
+  "profile.save": "save",
+  "profile.your age": "your age",
+  "profile.city": "city"
 }

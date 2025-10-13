@@ -5,6 +5,7 @@ import styles from './Button.module.scss';
 export enum ButtonTheme {
 	CLEAR = 'clear',
 	OUTLINE = 'outline',
+	OUTLINE_RED = 'outlineRed',
 	BACKGROUND = 'background',
 	BACKGROUND_INVERTED = 'backgroundInverted'
 }
