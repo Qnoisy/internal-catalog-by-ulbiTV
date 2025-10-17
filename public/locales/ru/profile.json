@@ -7,5 +7,7 @@
   "profile.cancel": "отменить",
   "profile.save": "сохранить",
   "profile.your age": "ваш возраст",
-  "profile.city": "город"
+  "profile.city": "город",
+  "profile.enter username": "введите имя пользователя",
+  "profile.enter link to avatar": "введите ссылку на аватар"
 }

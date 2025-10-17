@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
@@ -17,6 +18,8 @@ interface ProfileProps {
 	onChangeLastname?: (value?: string) => void;
 	onChangeAge?: (value?: string) => void;
 	onChangeCity?: (value?: string) => void;
+	onChangeUserName?: (value?: string) => void;
+	onChangeAvatar?: (value?: string) => void;
 }
 
 export const ProfileCard: React.FC<ProfileProps> = props => {
@@ -30,7 +33,9 @@ export const ProfileCard: React.FC<ProfileProps> = props => {
 		onChangeFirstname,
 		onChangeLastname,
 		onChangeAge,
-		onChangeCity
+		onChangeCity,
+		onChangeUserName,
+		onChangeAvatar
 	} = props;
 
 	if (isLoading)
@@ -46,10 +51,19 @@ export const ProfileCard: React.FC<ProfileProps> = props => {
 			</div>
 		);
 
+	const mods: Mods = {
+		[styles.editing]: !readonly
+	};
+
 	return (
-		<div className={classNames(styles.ProfileCard, {}, [className])}>
+		<div className={classNames(styles.ProfileCard, mods, [className])}>
 			<div className={styles.header}></div>
 			<div className={styles.data}>
+				{data?.avatar && (
+					<div className={styles.avatarWrapper}>
+						<Avatar src={data?.avatar} alt='' />
+					</div>
+				)}
 				<Input
 					value={data?.first}
 					placeholder={t('your firstname')}
@@ -63,19 +77,33 @@ export const ProfileCard: React.FC<ProfileProps> = props => {
 					className={styles.input}
 					onChange={onChangeLastname}
 					readOnly={readonly}
-				/>{' '}
+				/>
 				<Input
 					value={data?.age}
 					placeholder={t('your age')}
 					className={styles.input}
 					onChange={onChangeAge}
 					readOnly={readonly}
-				/>{' '}
+				/>
 				<Input
 					value={data?.city}
 					placeholder={t('city')}
 					className={styles.input}
 					onChange={onChangeCity}
+					readOnly={readonly}
+				/>
+				<Input
+					value={data?.username}
+					placeholder={t('enter username')}
+					className={styles.input}
+					onChange={onChangeUserName}
+					readOnly={readonly}
+				/>
+				<Input
+					value={data?.avatar}
+					placeholder={t('enter link to avatar')}
+					className={styles.input}
+					onChange={onChangeAvatar}
 					readOnly={readonly}
 				/>
 			</div>

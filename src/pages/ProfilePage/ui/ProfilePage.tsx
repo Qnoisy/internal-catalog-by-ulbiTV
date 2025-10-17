@@ -51,6 +51,18 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
 		},
 		[dispatch]
 	);
+	const onChangeAvatar = useCallback(
+		(value?: string) => {
+			dispatch(profileActions.updateProfile({ avatar: value || '' }));
+		},
+		[dispatch]
+	);
+	const onChangeUserName = useCallback(
+		(value?: string) => {
+			dispatch(profileActions.updateProfile({ username: value || '' }));
+		},
+		[dispatch]
+	);
 
 	useEffect(() => {
 		dispatch(fetchProfileData());
@@ -69,6 +81,8 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
 					onChangeLastname={onChangeLastname}
 					onChangeAge={onChangeAge}
 					onChangeCity={onChangeCity}
+					onChangeAvatar={onChangeAvatar}
+					onChangeUserName={onChangeUserName}
 				/>
 			</div>
 		</DynamicModuleLoader>

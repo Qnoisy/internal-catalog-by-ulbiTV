@@ -7,5 +7,7 @@
   "profile.cancel": "cancel",
   "profile.save": "save",
   "profile.your age": "your age",
-  "profile.city": "city"
+  "profile.city": "city",
+  "profile.enter username": "enter username",
+  "profile.enter link to avatar": "enter link to avatar"
 }
