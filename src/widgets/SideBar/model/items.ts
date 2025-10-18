@@ -7,6 +7,7 @@ export interface SideBarItemTyoe {
 	path: string;
 	text: string;
 	Icon: VFC<SVGProps<SVGSVGElement>>;
+	authOnly?: boolean;
 }
 
 export const SideBarItemsList: SideBarItemTyoe[] = [
@@ -23,6 +24,7 @@ export const SideBarItemsList: SideBarItemTyoe[] = [
 	{
 		path: RoutePath.profile,
 		Icon: ProfileIcon,
-		text: 'profile'
+		text: 'profile',
+		authOnly: true
 	}
 ];

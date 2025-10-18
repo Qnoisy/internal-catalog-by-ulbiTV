@@ -1,3 +1,5 @@
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 import {
 	fetchProfileData,
 	getProfileError,
@@ -63,6 +65,18 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
 		},
 		[dispatch]
 	);
+	const onChangeCurrency = useCallback(
+		(currency?: Currency) => {
+			dispatch(profileActions.updateProfile({ currency }));
+		},
+		[dispatch]
+	);
+	const onChangeCountry = useCallback(
+		(country?: Country) => {
+			dispatch(profileActions.updateProfile({ country }));
+		},
+		[dispatch]
+	);
 
 	useEffect(() => {
 		dispatch(fetchProfileData());
@@ -83,6 +97,8 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
 					onChangeCity={onChangeCity}
 					onChangeAvatar={onChangeAvatar}
 					onChangeUserName={onChangeUserName}
+					onChangeCurrency={onChangeCurrency}
+					onChangeCountry={onChangeCountry}
 				/>
 			</div>
 		</DynamicModuleLoader>

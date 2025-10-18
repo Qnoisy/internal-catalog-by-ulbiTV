@@ -1,3 +1,5 @@
+import { Country, CountrySelect } from 'entities/Country';
+import { Currency, CurrencySelect } from 'entities/Currency';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
@@ -20,6 +22,8 @@ interface ProfileProps {
 	onChangeCity?: (value?: string) => void;
 	onChangeUserName?: (value?: string) => void;
 	onChangeAvatar?: (value?: string) => void;
+	onChangeCurrency?: (currency?: Currency) => void;
+	onChangeCountry?: (country?: Country) => void;
 }
 
 export const ProfileCard: React.FC<ProfileProps> = props => {
@@ -35,7 +39,9 @@ export const ProfileCard: React.FC<ProfileProps> = props => {
 		onChangeAge,
 		onChangeCity,
 		onChangeUserName,
-		onChangeAvatar
+		onChangeAvatar,
+		onChangeCurrency,
+		onChangeCountry
 	} = props;
 
 	if (isLoading)
@@ -104,6 +110,18 @@ export const ProfileCard: React.FC<ProfileProps> = props => {
 					placeholder={t('enter link to avatar')}
 					className={styles.input}
 					onChange={onChangeAvatar}
+					readOnly={readonly}
+				/>
+				<CurrencySelect
+					className={styles.input}
+					value={data?.currency}
+					onChange={onChangeCurrency}
+					readOnly={readonly}
+				/>
+				<CountrySelect
+					className={styles.input}
+					value={data?.country}
+					onChange={onChangeCountry}
 					readOnly={readonly}
 				/>
 			</div>

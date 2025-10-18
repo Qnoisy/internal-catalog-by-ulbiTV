@@ -9,5 +9,7 @@
   "profile.your age": "ваш возраст",
   "profile.city": "город",
   "profile.enter username": "введите имя пользователя",
-  "profile.enter link to avatar": "введите ссылку на аватар"
+  "profile.enter link to avatar": "введите ссылку на аватар",
+  "select currency": "выберите валюту",
+  "select country": "выберите страну"
 }

@@ -9,5 +9,7 @@
   "profile.your age": "your age",
   "profile.city": "city",
   "profile.enter username": "enter username",
-  "profile.enter link to avatar": "enter link to avatar"
+  "profile.enter link to avatar": "enter link to avatar",
+  "select currency": "select currency",
+  "select country": "select country"
 }

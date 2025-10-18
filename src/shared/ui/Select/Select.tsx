@@ -13,10 +13,11 @@ interface SelectProps {
 	options?: SelectOptions[];
 	value?: string;
 	onChange?: (value: string) => void;
+	readonly?: boolean;
 }
 
 export const Select: React.FC<SelectProps> = memo(props => {
-	const { className, label, options, value, onChange } = props;
+	const { className, label, options, value, onChange, readonly } = props;
 	const mods: Mods = {};
 
 	const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -34,7 +35,12 @@ export const Select: React.FC<SelectProps> = memo(props => {
 	return (
 		<div className={classNames(styles.Wrapper, mods, [className])}>
 			{label && <span className={styles.label}>{`${label}>`}</span>}
-			<select value={value} onChange={onChangeHandler} className={styles.select}>
+			<select
+				disabled={readonly}
+				value={value}
+				onChange={onChangeHandler}
+				className={styles.select}
+			>
 				{optionList}
 			</select>
 		</div>
