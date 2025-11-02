@@ -11,5 +11,10 @@
   "profile.enter username": "введите имя пользователя",
   "profile.enter link to avatar": "введите ссылку на аватар",
   "select currency": "выберите валюту",
-  "select country": "выберите страну"
+  "select country": "выберите страну",
+  "profile.incorrect username": "Введите правильные имя и фамилию",
+  "profile.incorrect age": "Введите свой возраст",
+  "profile.incorrect country": "Выберете страну",
+  "profile.enter your data": "Данные не указаны",
+  "profile.server error": "Серверная ошибка"
 }

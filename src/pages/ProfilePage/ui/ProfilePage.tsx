@@ -6,14 +6,18 @@ import {
 	getProfileForm,
 	getProfileIsLoading,
 	getProfileReadonly,
+	getProfileValidateErrors,
 	profileActions,
 	ProfileCard,
 	profileReducer
 } from 'entities/Profile';
+import { ValidateProfileErrors } from 'entities/Profile/model/types/profile';
 import React, { useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -28,6 +32,16 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
 	const error = useSelector(getProfileError);
 	const dispatch = useAppDispatch();
 	const readonly = useSelector(getProfileReadonly);
+	const validateErrors = useSelector(getProfileValidateErrors);
+	const { t } = useTranslation('profile');
+
+	const ValidateProfileTranslate = {
+		[ValidateProfileErrors.INCORRECT_USER_DATA]: t('incorrect username'),
+		[ValidateProfileErrors.INCORRECT_USER_AGE]: t('incorrect age'),
+		[ValidateProfileErrors.INCORRECT_USER_COUNTRY]: t('incorrect country'),
+		[ValidateProfileErrors.NO_USER_DATA]: t('enter your data'),
+		[ValidateProfileErrors.SERVER_ERROR]: t('server error')
+	};
 
 	const onChangeFirstname = useCallback(
 		(value?: string) => {
@@ -86,6 +100,10 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
 			<div>
 				<ProfilePageHeader />
+				{validateErrors?.length &&
+					validateErrors.map(err => (
+						<Text key={err} theme={TextTheme.ERROR} text={ValidateProfileTranslate[err]} />
+					))}
 				<ProfileCard
 					data={formData}
 					isLoading={isLoading}

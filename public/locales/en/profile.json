@@ -11,5 +11,10 @@
   "profile.enter username": "enter username",
   "profile.enter link to avatar": "enter link to avatar",
   "select currency": "select currency",
-  "select country": "select country"
+  "select country": "select country",
+  "profile.incorrect username": "incorrect username",
+  "profile.incorrect age": "incorrect age",
+  "profile.incorrect country": "incorrect country",
+  "profile.enter your data": "enter your data",
+  "profile.server error": "server error"
 }
