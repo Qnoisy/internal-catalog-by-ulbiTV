@@ -1,3 +1,5 @@
 {
-	"articles": "Статьи"
+  "articles": "Статьи",
+  "articles.Article not found": "Статья не найдена",
+  "error article": "Произогла ошибка при загрузке статьи"
 }
