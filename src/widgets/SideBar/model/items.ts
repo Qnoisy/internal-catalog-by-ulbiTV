@@ -26,5 +26,11 @@ export const SideBarItemsList: SideBarItemTyoe[] = [
 		Icon: ProfileIcon,
 		text: 'profile',
 		authOnly: true
+	},
+	{
+		path: RoutePath.articles,
+		Icon: ProfileIcon,
+		text: 'articles',
+		authOnly: true
 	}
 ];
