@@ -1,5 +1,7 @@
 {
-  "articles": "Статьи",
-  "articles.Article not found": "Статья не найдена",
-  "error article": "Произогла ошибка при загрузке статьи"
+	"articles": "Статьи",
+	"articles.Article not found": "Статья не найдена",
+	"error article": "Произогла ошибка при загрузке статьи",
+	"CommentTitle": "Коментарий",
+	"There are no comments yet": "комментарии отсутствуют"
 }
