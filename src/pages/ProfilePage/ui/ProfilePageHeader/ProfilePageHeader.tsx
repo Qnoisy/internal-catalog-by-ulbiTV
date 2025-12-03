@@ -1,4 +1,10 @@
-import { getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile';
+import {
+	getProfileData,
+	getProfileReadonly,
+	profileActions,
+	updateProfileData
+} from 'entities/Profile';
+import { getUserAuthData } from 'entities/User';
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -16,6 +22,9 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({ className 
 	const readOnly = useSelector(getProfileReadonly);
 	const { t } = useTranslation('profile');
 	const dispatch = useAppDispatch();
+	const authData = useSelector(getUserAuthData);
+	const profileData = useSelector(getProfileData);
+	const canEdit = authData?.id === profileData?.id;
 
 	const onEdit = useCallback(() => {
 		dispatch(profileActions.setReadonly(false));
@@ -32,20 +41,23 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({ className 
 	return (
 		<div className={classNames(styles.ProfilePageHeader, {}, [className])}>
 			<Text title={t('profile')} />
-
-			{readOnly ? (
-				<Button onClick={onEdit} className={styles.editBtn}>
-					{t('edit')}
-				</Button>
-			) : (
-				<>
-					<Button onClick={onCancel} className={styles.editBtn} theme={ButtonTheme.OUTLINE_RED}>
-						{t('cancel')}
-					</Button>
-					<Button onClick={onSave} className={styles.saveBtn}>
-						{t('save')}
-					</Button>
-				</>
+			{canEdit && (
+				<div className={styles.btnWrapper}>
+					{readOnly ? (
+						<Button onClick={onEdit} className={styles.editBtn}>
+							{t('edit')}
+						</Button>
+					) : (
+						<>
+							<Button onClick={onCancel} className={styles.editBtn} theme={ButtonTheme.OUTLINE_RED}>
+								{t('cancel')}
+							</Button>
+							<Button onClick={onSave} className={styles.saveBtn}>
+								{t('save')}
+							</Button>
+						</>
+					)}
+				</div>
 			)}
 		</div>
 	);

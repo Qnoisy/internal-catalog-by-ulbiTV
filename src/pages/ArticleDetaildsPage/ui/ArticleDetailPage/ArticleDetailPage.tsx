@@ -1,17 +1,21 @@
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
+import AddCommentForm from 'features/AddCommentForm/ui/AddCommentForm/AddCommentForm';
 import { getArticleCommentsIsLoading } from 'pages/ArticleDetaildsPage/model/selectors/comments';
-import { fetchCommentByArticleId } from 'pages/ArticleDetaildsPage/model/service/fetchCommentByArticleId';
+
+import { addCommentFormArticle } from 'pages/ArticleDetaildsPage/model/service/addCommentFormArticle';
+import { fetchCommentsByArticleId } from 'pages/ArticleDetaildsPage/model/service/fetchCommentByArticleId';
 import {
 	articleDetailsCommentsReducer,
 	getArticleComments
 } from 'pages/ArticleDetaildsPage/model/slice/articleDetailsCommentsSlice';
-import React, { memo, useEffect } from 'react';
+import React, { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text } from 'shared/ui/Text/Text';
 import styles from './ArticleDetailPage.module.scss';
 
@@ -26,14 +30,21 @@ const reducerList: ReducersList = {
 const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ className }) => {
 	const { id } = useParams<{ id: string }>();
 	const { t } = useTranslation('articles');
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const comments = useSelector(getArticleComments.selectAll);
 	const isLoading = useSelector(getArticleCommentsIsLoading);
 	// const error = useSelector(getArticleCommentsError);
 
 	useEffect(() => {
-		dispatch(fetchCommentByArticleId(id));
+		dispatch(fetchCommentsByArticleId(id));
 	}, []);
+
+	const onSendComment = useCallback(
+		(text: string) => {
+			dispatch(addCommentFormArticle(text));
+		},
+		[dispatch]
+	);
 
 	if (!id) {
 		return (
@@ -48,6 +59,7 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ className }) => {
 			<div className={classNames(styles.ArticleDetailPage, {}, [className])}>
 				<ArticleDetails id={id} />
 				<Text className={styles.commentTitle} title={t('CommentTitle')} />
+				<AddCommentForm onSendComment={onSendComment} />
 				<CommentList isLoading={isLoading} comments={comments} />
 			</div>
 		</DynamicModuleLoader>

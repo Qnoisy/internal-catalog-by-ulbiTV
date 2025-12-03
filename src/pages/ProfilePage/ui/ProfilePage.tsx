@@ -15,6 +15,7 @@ import { ValidateProfileErrors } from 'entities/Profile/model/types/profile';
 import React, { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
@@ -34,6 +35,7 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
 	const readonly = useSelector(getProfileReadonly);
 	const validateErrors = useSelector(getProfileValidateErrors);
 	const { t } = useTranslation('profile');
+	const { id } = useParams<{ id: string }>();
 
 	const ValidateProfileTranslate = {
 		[ValidateProfileErrors.INCORRECT_USER_DATA]: t('incorrect username'),
@@ -93,7 +95,9 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
 	);
 
 	useEffect(() => {
-		dispatch(fetchProfileData());
+		if (id) {
+			dispatch(fetchProfileData(id));
+		}
 	}, [dispatch]);
 
 	return (

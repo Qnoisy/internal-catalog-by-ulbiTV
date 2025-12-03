@@ -19,7 +19,7 @@ describe('fetchProfileData.test', () => {
 		const testAsyncClass = new TestAsyncThunk(fetchProfileData);
 		testAsyncClass.api.get.mockReturnValue(Promise.resolve({ data: data }));
 
-		const result = await testAsyncClass.callThunk();
+		const result = await testAsyncClass.callThunk('1');
 
 		expect(testAsyncClass.api.get).toHaveBeenCalled();
 		expect(result.meta.requestStatus).toBe('fulfilled');
@@ -29,7 +29,7 @@ describe('fetchProfileData.test', () => {
 	test('error', async () => {
 		const testAsyncClass = new TestAsyncThunk(fetchProfileData);
 		testAsyncClass.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-		const result = await testAsyncClass.callThunk();
+		const result = await testAsyncClass.callThunk('1');
 
 		expect(result.meta.requestStatus).toBe('rejected');
 	});

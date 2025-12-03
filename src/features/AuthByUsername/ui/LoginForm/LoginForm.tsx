@@ -2,8 +2,8 @@ import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginE
 import { getLoginIsLoading } from 'features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from 'features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginUsername } from 'features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername';
+import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/logitSlice';
-import { loginByUsername } from 'features/AuthByUsername/services/loginByUsername/loginByUsername';
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
