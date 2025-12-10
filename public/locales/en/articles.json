@@ -1,8 +1,9 @@
 {
-	"articles": "Articles",
-	"articles.Article not found": "Article not found",
-	"There was an error loading the article": "There was an error loading the article",
-	"error article": "There was an error loading the article",
-	"CommentTitle": "Comment",
-	"noComments": "There are no comments yet"
+  "articles": "Articles",
+  "articles.Article not found": "Article not found",
+  "There was an error loading the article": "There was an error loading the article",
+  "error article": "There was an error loading the article",
+  "CommentTitle": "Comment",
+  "noComments": "There are no comments yet",
+  "articles.backToList": "Back"
 }

@@ -12,10 +12,12 @@ import {
 import React, { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
 import styles from './ArticleDetailPage.module.scss';
 
@@ -33,6 +35,7 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ className }) => {
 	const dispatch = useAppDispatch();
 	const comments = useSelector(getArticleComments.selectAll);
 	const isLoading = useSelector(getArticleCommentsIsLoading);
+	const navigate = useNavigate();
 	// const error = useSelector(getArticleCommentsError);
 
 	useEffect(() => {
@@ -46,6 +49,10 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ className }) => {
 		[dispatch]
 	);
 
+	const onBackToList = useCallback(() => {
+		navigate(RoutePath.articles);
+	}, []);
+
 	if (!id) {
 		return (
 			<div className={classNames(styles.ArticleDetailPage, {}, [className])}>
@@ -57,6 +64,9 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ className }) => {
 	return (
 		<DynamicModuleLoader reducers={reducerList} removeAfterUnmount>
 			<div className={classNames(styles.ArticleDetailPage, {}, [className])}>
+				<Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+					{t('backToList')}
+				</Button>
 				<ArticleDetails id={id} />
 				<Text className={styles.commentTitle} title={t('CommentTitle')} />
 				<AddCommentForm onSendComment={onSendComment} />
