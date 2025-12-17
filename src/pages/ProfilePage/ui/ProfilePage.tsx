@@ -20,6 +20,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import { Page } from 'shared/ui/Page/Page';
 
 const reducers: ReducersList = {
 	profile: profileReducer
@@ -102,7 +103,7 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
 
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-			<div>
+			<Page>
 				<ProfilePageHeader />
 				{validateErrors?.length &&
 					validateErrors.map(err => (
@@ -122,7 +123,7 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
 					onChangeCurrency={onChangeCurrency}
 					onChangeCountry={onChangeCountry}
 				/>
-			</div>
+			</Page>
 		</DynamicModuleLoader>
 	);
 };

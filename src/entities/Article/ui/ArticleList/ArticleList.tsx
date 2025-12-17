@@ -29,17 +29,10 @@ export const ArticleList: React.FC<ArticleListProps> = ({
 		);
 	};
 
-	if (isLoading) {
-		return (
-			<div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
-				{getSkeletons(view)}
-			</div>
-		);
-	}
-
 	return (
 		<div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
 			{articles.length > 0 ? articles.map(article => renderArticles(article)) : null}
+			{isLoading && getSkeletons(view)}
 		</div>
 	);
 };

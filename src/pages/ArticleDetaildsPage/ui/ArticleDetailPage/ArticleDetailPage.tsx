@@ -20,6 +20,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
 import styles from './ArticleDetailPage.module.scss';
+import { Page } from 'shared/ui/Page/Page';
 
 interface ArticleDetailPageProps {
 	className?: string;
@@ -63,7 +64,7 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ className }) => {
 
 	return (
 		<DynamicModuleLoader reducers={reducerList} removeAfterUnmount>
-			<div className={classNames(styles.ArticleDetailPage, {}, [className])}>
+			<Page className={classNames(styles.ArticleDetailPage, {}, [className])}>
 				<Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
 					{t('backToList')}
 				</Button>
@@ -71,7 +72,7 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ className }) => {
 				<Text className={styles.commentTitle} title={t('CommentTitle')} />
 				<AddCommentForm onSendComment={onSendComment} />
 				<CommentList isLoading={isLoading} comments={comments} />
-			</div>
+			</Page>
 		</DynamicModuleLoader>
 	);
 };
