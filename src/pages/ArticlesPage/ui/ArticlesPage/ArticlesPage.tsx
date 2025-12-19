@@ -4,6 +4,7 @@ import { ArticleView, ArticleViewSelector } from 'entities/Article';
 import {
 	getArticlePageError,
 	getArticlePageHasMore,
+	getArticlePageInited,
 	getArticlePageisLoading,
 	getArticlePageNum,
 	getArticlePageView
@@ -23,6 +24,7 @@ import styles from './ArticlesPage.module.scss';
 import { Page } from 'shared/ui/Page/Page';
 import { log } from 'node:console';
 import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/service/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlePage } from 'pages/ArticlesPage/model/service/initArticlePage/initArticlePage';
 
 interface ArticlesPageProps {
 	className?: string;
@@ -42,11 +44,11 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
 	// const hasMore = useSelector(getArticlePageHasMore);
 
 	useEffect(() => {
-		dispatch(articlesPageActions.initState());
-		dispatch(fetchArticlesList({ page: 1 }));
-	}, [dispatch]);
+		dispatch(initArticlePage())
+	}, []);
 
 	const onLoadNextpart = useCallback(() => {
+
 		dispatch(fetchNextArticlesPage());
 	}, [dispatch]);
 
@@ -58,7 +60,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
 	);
 
 	return (
-		<DynamicModuleLoader reducers={reducers}>
+		<DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
 			<Page
 				onScrollEnd={onLoadNextpart}
 				className={classNames(styles.ArticlesPage, {}, [className])}

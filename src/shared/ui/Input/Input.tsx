@@ -66,7 +66,7 @@ export const Input: React.FC<InputProps> = memo(props => {
 					onBlur={onBlur}
 					onFocus={onFocus}
 					type={type}
-					value={value}
+					value={value || ""}
 					onChange={onChangeHandler}
 					className={classNames(styles.Input, mods, [])}
 					onSelect={onSelect}
