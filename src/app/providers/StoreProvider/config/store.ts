@@ -5,15 +5,17 @@ import { NavigateOptions, To } from 'react-router-dom';
 import { $api } from 'shared/api/api';
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArg } from './stateSchema';
+import { ScrolSaveReducer } from 'features/ScrollSave/model/slice/ScrollSaveSlice';
 
 export function createReduxStore(
 	initialState?: StateSchema,
-	asyncReducers?: ReducersMapObject<StateSchema>,
+	asyncReducers?: ReducersMapObject<StateSchema>
 ) {
 	const rootReducer: ReducersMapObject<StateSchema> = {
 		...asyncReducers,
 		counter: CounterReducer,
-		user: UserReducer
+		user: UserReducer,
+		scrollSave: ScrolSaveReducer
 		// login: loginReducer
 	};
 

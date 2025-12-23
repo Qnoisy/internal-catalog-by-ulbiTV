@@ -21,7 +21,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import styles from './ArticlesPage.module.scss';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { log } from 'node:console';
 import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/service/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlePage } from 'pages/ArticlesPage/model/service/initArticlePage/initArticlePage';
@@ -44,11 +44,10 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
 	// const hasMore = useSelector(getArticlePageHasMore);
 
 	useEffect(() => {
-		dispatch(initArticlePage())
+		dispatch(initArticlePage());
 	}, []);
 
 	const onLoadNextpart = useCallback(() => {
-
 		dispatch(fetchNextArticlesPage());
 	}, [dispatch]);
 

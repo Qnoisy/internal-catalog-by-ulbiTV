@@ -8,18 +8,21 @@ import { UserSchema } from 'entities/User';
 import { AddCommentFormShema } from 'features/AddCommentForm';
 
 import { loginSchema } from 'features/AuthByUsername';
+import { ScrollSaveShema } from 'features/ScrollSave';
 import { ArticleDetailCommentsShema } from 'pages/ArticleDetaildsPage';
 import { ArticlePageShema } from 'pages/ArticlesPage';
 
 export interface StateSchema {
 	counter: CounterSchema;
 	user: UserSchema;
+	scrollSave: ScrollSaveShema;
+
 	login?: loginSchema;
 	profile?: ProfileShema;
 	articleDetails?: ArticleDetailsShema;
 	articleDetailsComments?: ArticleDetailCommentsShema;
 	addCommentForm?: AddCommentFormShema;
-	articlesPage?: ArticlePageShema
+	articlesPage?: ArticlePageShema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
