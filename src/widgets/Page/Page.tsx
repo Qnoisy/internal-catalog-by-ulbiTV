@@ -29,8 +29,6 @@ export const Page: React.FC<PageProps> = ({ className, children, onScrollEnd }) 
 	useInfiniteScroll({ triggerRef, wrapperRef, callback: onScrollEnd });
 
 	const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-		console.log('top');
-
 		dispatch(
 			ScrolSaveActions.setScrollPosition({ position: e.currentTarget.scrollTop, path: pathname })
 		);
@@ -47,7 +45,7 @@ export const Page: React.FC<PageProps> = ({ className, children, onScrollEnd }) 
 			onScroll={onScroll}
 		>
 			{children}
-			<div ref={triggerRef} />
+			{onScrollEnd ? <div className={styles.trigger} ref={triggerRef} /> : null}
 		</section>
 	);
 };

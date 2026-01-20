@@ -16,5 +16,6 @@
   "profile.incorrect age": "Введите свой возраст",
   "profile.incorrect country": "Выберете страну",
   "profile.enter your data": "Данные не указаны",
-  "profile.server error": "Серверная ошибка"
+  "profile.server error": "Серверная ошибка",
+  "economics": "экономика"
 }

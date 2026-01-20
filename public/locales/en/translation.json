@@ -14,5 +14,18 @@
   "Login": "Login",
   "send": "send",
   "enter comment": "enter comment",
-  "Read more": "Read more..."
+  "Read more": "Read more...",
+  "sort by": "sort by",
+  "search": "search",
+  "by": "by",
+  "ascending": "ascending",
+  "descending": "descending",
+  "created": "created",
+  "title": "title",
+  "views": "views",
+  "it": "IT",
+  "economics": "economics",
+  "science": "science",
+  "all": "all",
+  "Articles is not found": "Articles is not found"
 }

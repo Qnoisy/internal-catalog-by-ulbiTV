@@ -1,27 +1,27 @@
-import React, { ChangeEvent, memo, useMemo } from 'react';
+import React, { ChangeEvent, useMemo } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import styles from './Select.module.scss';
 
-export interface SelectOptions {
-	value: string;
+export interface SelectOptions<T extends string> {
+	value: T;
 	content: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
 	className?: string;
 	label?: string;
-	options?: SelectOptions[];
-	value?: string;
-	onChange?: (value: string) => void;
+	options?: SelectOptions<T>[];
+	value?: T;
+	onChange?: (value: T) => void;
 	readonly?: boolean;
 }
 
-export const Select: React.FC<SelectProps> = memo(props => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
 	const { className, label, options, value, onChange, readonly } = props;
 	const mods: Mods = {};
 
 	const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-		onChange?.(e.target.value);
+		onChange?.(e.target.value as T);
 	};
 
 	const optionList = useMemo(() => {
@@ -45,4 +45,4 @@ export const Select: React.FC<SelectProps> = memo(props => {
 			</select>
 		</div>
 	);
-});
+};
