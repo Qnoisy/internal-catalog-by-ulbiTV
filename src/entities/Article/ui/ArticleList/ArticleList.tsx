@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributeAnchorTarget } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -12,6 +12,7 @@ interface ArticleListProps {
 	articles: Article[];
 	isLoading?: boolean;
 	view?: ArticleView;
+	target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) =>
@@ -23,12 +24,13 @@ export const ArticleList: React.FC<ArticleListProps> = ({
 	className,
 	articles,
 	view = ArticleView.SMALL,
-	isLoading
+	isLoading,
+	target
 }) => {
 	const { t } = useTranslation();
 	const renderArticles = (article: Article) => {
 		return (
-			<ArticleListItem article={article} view={view} className={styles.card} key={article.id} />
+			<ArticleListItem target={target} article={article} view={view} className={styles.card} key={article.id} />
 		);
 	};
 

@@ -1,3 +1,4 @@
+import { ArticleDetails } from './../../../../entities/Article/ui/ArticleDetails/ArticleDetails';
 import { AnyAction, CombinedState, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { EnhancedStore } from '@reduxjs/toolkit/dist/configureStore';
 import { AxiosInstance } from 'axios';
@@ -10,6 +11,8 @@ import { AddCommentFormShema } from 'features/AddCommentForm';
 import { loginSchema } from 'features/AuthByUsername';
 import { ScrollSaveShema } from 'features/ScrollSave';
 import { ArticleDetailCommentsShema } from 'pages/ArticleDetaildsPage';
+import { ArticleDetailsPageShema } from 'pages/ArticleDetaildsPage/model/types';
+import { ArticleDetailsRecommendationsShema } from 'pages/ArticleDetaildsPage/model/types/ArticleDetailsRecommendationsShema';
 import { ArticlePageShema } from 'pages/ArticlesPage';
 
 export interface StateSchema {
@@ -19,10 +22,12 @@ export interface StateSchema {
 
 	login?: loginSchema;
 	profile?: ProfileShema;
-	articleDetails?: ArticleDetailsShema;
-	articleDetailsComments?: ArticleDetailCommentsShema;
+	articleDetails?: ArticleDetailsShema
 	addCommentForm?: AddCommentFormShema;
 	articlesPage?: ArticlePageShema;
+	// articleDetailsRecommendations?: ArticleDetailsRecommendationsShema;
+	// articleDetailsComments?: ArticleDetailCommentsShema;
+	articleDetailsPage?: ArticleDetailsPageShema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

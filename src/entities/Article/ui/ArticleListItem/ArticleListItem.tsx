@@ -4,7 +4,7 @@ import {
 	ArticleTextBlock,
 	ArticleView
 } from 'entities/Article/model/types/article';
-import React, { useCallback } from 'react';
+import React, { HTMLAttributeAnchorTarget, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
@@ -17,14 +17,16 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import { Text } from 'shared/ui/Text/Text';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import styles from './ArticleListItem.module.scss';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 
 interface ArticleListItemProps {
 	className?: string;
 	article: Article;
 	view: ArticleView;
+	target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleListItem: React.FC<ArticleListItemProps> = ({ className, article, view }) => {
+export const ArticleListItem: React.FC<ArticleListItemProps> = ({ className, article, view, target }) => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 
@@ -36,9 +38,6 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = ({ className, art
 		</>
 	);
 
-	const onOpenArticle = useCallback(() => {
-		navigate(RoutePath.article_details + article.id);
-	}, [article.id, navigate]);
 
 	if (view === ArticleView.BIG) {
 		const textBlock = article.blocks.find(
@@ -60,9 +59,10 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = ({ className, art
 						<ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
 					)}
 					<div className={styles.footer}>
-						<Button onClick={onOpenArticle} theme={ButtonTheme.OUTLINE}>
+						<AppLink target={target} to={RoutePath.article_details + article.id}>
+						<Button theme={ButtonTheme.OUTLINE}>
 							{t('Read more')}
-						</Button>
+						</Button></AppLink>
 						{views}
 					</div>
 				</Card>
@@ -71,8 +71,8 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = ({ className, art
 	}
 
 	return (
-		<div className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}>
-			<Card className={styles.card} onClick={onOpenArticle}>
+		<AppLink target={target} to={RoutePath.article_details + article.id} className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}>
+			<Card className={styles.card}>
 				<div className={styles.imageWrapper}>
 					<img alt={article.title} src={article.img} className={styles.img} />
 					<Text text={article.createdAt} className={styles.date} />
@@ -83,6 +83,6 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = ({ className, art
 				</div>
 				<Text text={article.title} className={styles.title} />
 			</Card>
-		</div>
+		</AppLink>
 	);
 };

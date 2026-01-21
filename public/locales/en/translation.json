@@ -27,5 +27,8 @@
   "economics": "economics",
   "science": "science",
   "all": "all",
-  "Articles is not found": "Articles is not found"
+  "Articles is not found": "Articles is not found",
+  "articles": {
+    "Recommends": "Recommends"
+  }
 }

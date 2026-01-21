@@ -26,5 +26,8 @@
   "it": "Айти",
   "all": "Все",
   "science": "наука",
-  "Articles is not found": "статьи не найдены"
+  "Articles is not found": "статьи не найдены",
+  "articles": {
+    "Recommends": "Рекомендуем"
+  }
 }
