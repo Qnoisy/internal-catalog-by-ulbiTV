@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import styles from './Navbar.module.scss';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface NavbarProps {
 	className?: string;
@@ -31,20 +34,28 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
 	if (authData) {
 		return (
-			<div className={classNames(styles.Navbar, {}, [className])}>
+			<header className={classNames(styles.Navbar, {}, [className])}>
+				<Text className={styles.appName} title={t('Ulbi TV app')} theme={TextTheme.INVERTED} />
+				<AppLink
+					className={styles.appLink}
+					theme={AppLinkTheme.PRIMARY}
+					to={RoutePath.article_create}
+				>
+					{t('create article')}
+				</AppLink>
 				<Button theme={ButtonTheme.CLEAR} className={styles.links} onClick={onLogout}>
 					{t('Logout')}
 				</Button>
-			</div>
+			</header>
 		);
 	}
 
 	return (
-		<div className={classNames(styles.Navbar, {}, [className])}>
+		<header className={classNames(styles.Navbar, {}, [className])}>
 			<Button theme={ButtonTheme.CLEAR} className={styles.links} onClick={onShowModal}>
 				{t('Login')}
 			</Button>
 			<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
-		</div>
+		</header>
 	);
 });

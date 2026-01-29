@@ -1,8 +1,9 @@
 {
-  "articles": "Статьи",
-  "articles.Article not found": "Статья не найдена",
-  "error article": "Произогла ошибка при загрузке статьи",
-  "CommentTitle": "Коментарий",
-  "noComments": "комментарии отсутствуют",
-  "articles.backToList": "Назад"
+	"articles": "Статьи",
+	"articles.Article not found": "Статья не найдена",
+	"error article": "Произогла ошибка при загрузке статьи",
+	"CommentTitle": "Коментарий",
+	"noComments": "комментарии отсутствуют",
+	"articles.backToList": "Назад",
+	"edit": "Редактировать"
 }

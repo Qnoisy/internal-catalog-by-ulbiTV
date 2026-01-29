@@ -25,8 +25,12 @@ import { Page } from 'widgets/Page/Page';
 import { getArticleRecommendationsIsLoading } from 'pages/ArticleDetaildsPage/model/selectors/recomendations';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
 import { fetchArticleRecommendations } from 'pages/ArticleDetaildsPage/model/service/fetchArticleRecommendations';
-import { articleDetailsRecommendationsReducer, getArticleRecommendations } from 'pages/ArticleDetaildsPage/model/slice/articleDetailsRecommendationsSlice';
+import {
+	articleDetailsRecommendationsReducer,
+	getArticleRecommendations
+} from 'pages/ArticleDetaildsPage/model/slice/articleDetailsRecommendationsSlice';
 import { articleDetailsPageReducer } from 'pages/ArticleDetaildsPage/model/slice';
+import { ArticleDetailPageHeader } from '../ArticleDetailPageHeader/ArticleDetailPageHeader';
 
 interface ArticleDetailPageProps {
 	className?: string;
@@ -42,7 +46,7 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ className }) => {
 	const dispatch = useAppDispatch();
 	const comments = useSelector(getArticleComments.selectAll);
 	const isLoading = useSelector(getArticleCommentsIsLoading);
-	const navigate = useNavigate();
+
 	const recommendations = useSelector(getArticleRecommendations.selectAll);
 	const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
 	// const error = useSelector(getArticleCommentsError);
@@ -59,10 +63,6 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ className }) => {
 		[dispatch]
 	);
 
-	const onBackToList = useCallback(() => {
-		navigate(RoutePath.articles);
-	}, []);
-
 	if (!id) {
 		return (
 			<div className={classNames(styles.ArticleDetailPage, {}, [className])}>
@@ -74,12 +74,15 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ className }) => {
 	return (
 		<DynamicModuleLoader reducers={reducerList} removeAfterUnmount>
 			<Page className={classNames(styles.ArticleDetailPage, {}, [className])}>
-				<Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-					{t('backToList')}
-				</Button>
+				<ArticleDetailPageHeader />
 				<ArticleDetails id={id} />
 				<Text size={TextSize.L} className={styles.commentTitle} title={t('Recommends')} />
-				<ArticleList target='_blanck' articles={recommendations} isLoading={recommendationsIsLoading} className={styles.recomendations}/>
+				<ArticleList
+					target='_blanck'
+					articles={recommendations}
+					isLoading={recommendationsIsLoading}
+					className={styles.recomendations}
+				/>
 				<Text size={TextSize.L} className={styles.commentTitle} title={t('CommentTitle')} />
 				<AddCommentForm onSendComment={onSendComment} />
 				<CommentList isLoading={isLoading} comments={comments} />
