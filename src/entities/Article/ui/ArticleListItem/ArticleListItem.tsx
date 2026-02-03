@@ -26,7 +26,12 @@ interface ArticleListItemProps {
 	target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleListItem: React.FC<ArticleListItemProps> = ({ className, article, view, target }) => {
+export const ArticleListItem: React.FC<ArticleListItemProps> = ({
+	className,
+	article,
+	view,
+	target
+}) => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 
@@ -37,7 +42,6 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = ({ className, art
 			<Icon Svg={EyeIcon} />
 		</>
 	);
-
 
 	if (view === ArticleView.BIG) {
 		const textBlock = article.blocks.find(
@@ -60,9 +64,8 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = ({ className, art
 					)}
 					<div className={styles.footer}>
 						<AppLink target={target} to={RoutePath.article_details + article.id}>
-						<Button theme={ButtonTheme.OUTLINE}>
-							{t('Read more')}
-						</Button></AppLink>
+							<Button theme={ButtonTheme.OUTLINE}>{t('Read more')}</Button>
+						</AppLink>
 						{views}
 					</div>
 				</Card>
@@ -71,7 +74,11 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = ({ className, art
 	}
 
 	return (
-		<AppLink target={target} to={RoutePath.article_details + article.id} className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}>
+		<AppLink
+			target={target}
+			to={RoutePath.article_details + article.id}
+			className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}
+		>
 			<Card className={styles.card}>
 				<div className={styles.imageWrapper}>
 					<img alt={article.title} src={article.img} className={styles.img} />

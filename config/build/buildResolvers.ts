@@ -7,6 +7,9 @@ export function buildResolvers(options: BuildOptions): webpack.ResolveOptions {
 		preferAbsolute: true,
 		modules: [options.paths.src, 'node_modules'],
 		mainFiles: ['index'],
-		alias: {}
+		alias: {
+			'react/jsx-runtime': 'react/jsx-runtime.js',
+			'react/jsx-dev-runtime': 'react/jsx-dev-runtime.js'
+		}
 	};
 }

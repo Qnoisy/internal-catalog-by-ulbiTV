@@ -39,37 +39,31 @@ const reducers: ReducersList = {
 const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
 	const dispatch = useAppDispatch();
 	const articles = useSelector(getArticles.selectAll);
-	const isLoading = useSelector(getArticlePageisLoading);
 	const view = useSelector(getArticlePageView);
 	const [searchParams] = useSearchParams();
-
 	// const error = useSelector(getArticlePageError);
-
-	// const page = useSelector(getArticlePageNum);
-	// const hasMore = useSelector(getArticlePageHasMore);
+	const isLoading = useSelector(getArticlePageisLoading);
+	const hasMore = useSelector(getArticlePageHasMore);
 
 	useEffect(() => {
 		dispatch(initArticlesPage(searchParams));
 	}, []);
 
 	const onLoadNextpart = useCallback(() => {
-		dispatch(fetchNextArticlesPage());
-	}, [dispatch]);
+		if (!isLoading && hasMore) {
+			console.log('LOAD NEXT');
+			dispatch(fetchNextArticlesPage());
+		}
+	}, [dispatch, isLoading, hasMore]);
 
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-			<Page
-				onScrollEnd={onLoadNextpart}
-				className={classNames(styles.ArticlesPage, {}, [className])}
-			>
-				<ArticlesPageFilter />
-				<ArticleList
-					articles={articles}
-					view={view}
-					isLoading={isLoading}
-					className={styles.list}
-				/>
-			</Page>
+			<ArticleList
+				articles={articles}
+				view={view}
+				isLoading={isLoading}
+				onLoadNextpart={onLoadNextpart}
+			/>
 		</DynamicModuleLoader>
 	);
 };
