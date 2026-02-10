@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react';
-import styles from './ArticleDetailPageHeader.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
@@ -8,6 +7,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
 import { getArticleCanEdit } from 'pages/ArticleDetaildsPage/model/selectors/article';
 import { getUserAuthData } from 'entities/User';
+import { HStack } from 'shared/ui/Stack';
 
 interface ArticleDetailPageHeaderProps {
 	className?: string;
@@ -28,15 +28,15 @@ export const ArticleDetailPageHeader: React.FC<ArticleDetailPageHeaderProps> = (
 	}, []);
 
 	return (
-		<div className={classNames(styles.ArticleDetailPageHeader, {}, [className])}>
+		<HStack justify='between' max className={classNames('', {}, [className])}>
 			<Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
 				{t('backToList')}
 			</Button>
 			{canEdit && (
-				<Button className={styles.btn} theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
+				<Button theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
 					{t('edit')}
 				</Button>
 			)}
-		</div>
+		</HStack>
 	);
 };

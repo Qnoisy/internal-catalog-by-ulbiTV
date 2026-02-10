@@ -25,7 +25,7 @@ export const SidebarItem: React.FC<SidebartemProps> = ({ item, collapsed }) => {
 		<AppLink
 			theme={AppLinkTheme.SECONDARY}
 			to={item.path}
-			className={classNames(styles.item, { [styles.collapsed]: collapsed })}
+			className={classNames('', { [styles.collapsed]: collapsed })}
 		>
 			<item.Icon className={styles.icon} />
 			<span className={styles.link}>{t(item.text)}</span>

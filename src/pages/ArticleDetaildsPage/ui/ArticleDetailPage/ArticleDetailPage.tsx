@@ -13,7 +13,6 @@ import React, { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -31,6 +30,7 @@ import {
 } from 'pages/ArticleDetaildsPage/model/slice/articleDetailsRecommendationsSlice';
 import { articleDetailsPageReducer } from 'pages/ArticleDetaildsPage/model/slice';
 import { ArticleDetailPageHeader } from '../ArticleDetailPageHeader/ArticleDetailPageHeader';
+import { VStack } from 'shared/ui/Stack';
 
 interface ArticleDetailPageProps {
 	className?: string;
@@ -74,18 +74,20 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ className }) => {
 	return (
 		<DynamicModuleLoader reducers={reducerList} removeAfterUnmount>
 			<Page className={classNames(styles.ArticleDetailPage, {}, [className])}>
-				<ArticleDetailPageHeader />
-				<ArticleDetails id={id} />
-				<Text size={TextSize.L} className={styles.commentTitle} title={t('Recommends')} />
-				<ArticleList
-					target='_blanck'
-					articles={recommendations}
-					isLoading={recommendationsIsLoading}
-					className={styles.recomendations}
-				/>
-				<Text size={TextSize.L} className={styles.commentTitle} title={t('CommentTitle')} />
-				<AddCommentForm onSendComment={onSendComment} />
-				<CommentList isLoading={isLoading} comments={comments} />
+				<VStack gap={'16'} max>
+					<ArticleDetailPageHeader />
+					<ArticleDetails id={id} />
+					<Text size={TextSize.L} className={styles.commentTitle} title={t('Recommends')} />
+					<ArticleList
+						target='_blanck'
+						articles={recommendations}
+						isLoading={recommendationsIsLoading}
+						className={styles.recomendations}
+					/>
+					<Text size={TextSize.L} className={styles.commentTitle} title={t('CommentTitle')} />
+					<AddCommentForm onSendComment={onSendComment} />
+					<CommentList isLoading={isLoading} comments={comments} />
+				</VStack>
 			</Page>
 		</DynamicModuleLoader>
 	);

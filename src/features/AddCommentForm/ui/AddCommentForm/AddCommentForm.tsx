@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import styles from './AddCommentForm.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 export interface AddCommentFormProps {
 	className?: string;
@@ -41,7 +42,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ className, onSendCommen
 
 	return (
 		<DynamicModuleLoader reducers={reducer}>
-			<div className={classNames(styles.AddCommentForm, {}, [className])}>
+			<HStack justify='between' max className={classNames(styles.AddCommentForm, {}, [className])}>
 				<Input
 					className={styles.input}
 					value={text}
@@ -49,7 +50,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ className, onSendCommen
 					onChange={onCommentTextChange}
 				/>
 				<Button onClick={onSendHandler}>{t('send')}</Button>
-			</div>
+			</HStack>
 		</DynamicModuleLoader>
 	);
 };

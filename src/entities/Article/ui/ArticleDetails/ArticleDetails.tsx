@@ -21,6 +21,7 @@ import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleC
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import styles from './ArticleDetails.module.scss';
+import { HStack, VStack } from 'shared/ui/Stack';
 
 interface ArticleDetailsProps {
 	className?: string;
@@ -74,27 +75,27 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = memo(({ className, 
 	} else {
 		content = (
 			<>
-				<div className={styles.avatarWrapper}>
-					<Avatar size={200} src={data?.img} className={styles.avatar} />
-				</div>
-
-				<Text title={data?.title} text={data?.subtitle} size={TextSize.L} />
-
-				<div className={styles.articleInfo}>
-					<Icon Svg={EyeIcon} className={styles.icon} />
-					<Text text={String(data?.views)} />
-				</div>
-				<div className={styles.articleInfo}>
-					<Icon Svg={CalendarIcon} className={styles.icon} />
-					<Text text={data?.createdAt} />
-				</div>
+				<HStack justify='center' max className={styles.avatarWrapper}>
+					<Avatar size={200} src={data?.img} />
+				</HStack>
+				<VStack gap='4' max>
+					<Text title={data?.title} text={data?.subtitle} size={TextSize.L} />
+					<HStack gap='8'>
+						<Icon Svg={EyeIcon} />
+						<Text text={String(data?.views)} />
+					</HStack>
+					<HStack gap='8'>
+						<Icon Svg={CalendarIcon} />
+						<Text text={data?.createdAt} />
+					</HStack>
+				</VStack>
 				{data?.blocks.map(renderBlock)}
 			</>
 		);
 	}
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-			{content}
+			<VStack gap='16'>{content}</VStack>
 		</DynamicModuleLoader>
 	);
 });

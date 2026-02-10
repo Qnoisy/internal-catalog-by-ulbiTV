@@ -12,7 +12,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
-import styles from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ProfilePageHeaderProps {
 	className?: string;
@@ -39,26 +39,22 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({ className 
 	}, [dispatch]);
 
 	return (
-		<div className={classNames(styles.ProfilePageHeader, {}, [className])}>
+		<HStack max justify={'between'} className={classNames('', {}, [className])}>
 			<Text title={t('profile')} />
 			{canEdit && (
-				<div className={styles.btnWrapper}>
+				<>
 					{readOnly ? (
-						<Button onClick={onEdit} className={styles.editBtn}>
-							{t('edit')}
-						</Button>
+						<Button onClick={onEdit}>{t('edit')}</Button>
 					) : (
-						<>
-							<Button onClick={onCancel} className={styles.editBtn} theme={ButtonTheme.OUTLINE_RED}>
+						<HStack gap={'8'}>
+							<Button onClick={onCancel} theme={ButtonTheme.OUTLINE_RED}>
 								{t('cancel')}
 							</Button>
-							<Button onClick={onSave} className={styles.saveBtn}>
-								{t('save')}
-							</Button>
-						</>
+							<Button onClick={onSave}>{t('save')}</Button>
+						</HStack>
 					)}
-				</div>
+				</>
 			)}
-		</div>
+		</HStack>
 	);
 };

@@ -1,5 +1,5 @@
 import React, { HTMLAttributeAnchorTarget, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -8,6 +8,7 @@ import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { ArticlesPageFilter } from 'pages/ArticlesPage/ui/ArticlesPageFilter/ArticlesPageFilter';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
+import { useParams } from 'react-router-dom';
 
 interface ArticleListProps {
 	className?: string;
@@ -30,7 +31,8 @@ export const ArticleList: React.FC<ArticleListProps> = ({
 	onLoadNextpart
 }) => {
 	const { t } = useTranslation();
-
+	const { id } = useParams();
+	const hasId = Boolean(id);
 	const Header = useCallback(() => <ArticlesPageFilter />, []);
 
 	const Footer = useCallback(() => {
@@ -84,8 +86,12 @@ export const ArticleList: React.FC<ArticleListProps> = ({
 		);
 	}
 
+	const mods: Mods = {
+		[styles.left]: !id
+	};
+
 	return (
-		<div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
+		<div className={classNames(styles.ArticleList, mods, [className, styles[view]])}>
 			{view === ArticleView.BIG ? (
 				<Virtuoso
 					className={styles.list}
