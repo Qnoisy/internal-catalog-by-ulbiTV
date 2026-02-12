@@ -3,6 +3,7 @@ import { Counter } from 'entities/Counter';
 
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { MyListbox } from 'shared/ui/ListBox/ListBox';
 import { Page } from 'widgets/Page/Page';
 
 const MainPage = memo(() => {
@@ -11,7 +12,6 @@ const MainPage = memo(() => {
 		<Page>
 			{t('main page')}
 			<BugButton />
-			<Counter />
 		</Page>
 	);
 });

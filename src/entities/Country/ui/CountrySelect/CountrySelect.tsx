@@ -2,6 +2,7 @@ import { Country } from 'entities/Country/model/types/country';
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { MyListbox } from 'shared/ui/ListBox/ListBox';
 import { Select } from 'shared/ui/Select/Select';
 
 interface CountrySelectProps {
@@ -35,13 +36,24 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
 	);
 
 	return (
-		<Select
+		<MyListbox
 			value={value}
-			readonly={readOnly}
-			label={t('select country')}
 			className={classNames('', {}, [className])}
 			onChange={onChangeCountry}
-			options={options}
-		></Select>
+			items={options}
+			label={t('select country')}
+			disabled={readOnly}
+		></MyListbox>
 	);
+
+	// return (
+	// 	<Select
+	// 		value={value}
+	// 		readonly={readOnly}
+
+	// 		className={classNames('', {}, [className])}
+	// 		onChange={onChangeCountry}
+	// 		options={options}
+	// 	></Select>
+	// );
 };

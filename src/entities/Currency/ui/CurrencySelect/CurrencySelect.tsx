@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Select } from 'shared/ui/Select/Select';
 import { Currency } from '../../model/types/currency';
+import { Listbox } from '@headlessui/react';
+import { MyListbox } from 'shared/ui/ListBox/ListBox';
 
 interface CurrencySelectProps {
 	className?: string;
@@ -28,16 +30,25 @@ export const CurrencySelect: React.FC<CurrencySelectProps> = memo(
 			},
 			[onChange]
 		);
-
 		return (
-			<Select
-				readonly={readOnly}
+			<MyListbox
 				value={value}
 				onChange={onChangeCurrency}
 				label={t('select currency')}
 				className={classNames('', {}, [className])}
-				options={options}
-			></Select>
+				items={options}
+				disabled={readOnly}
+			/>
 		);
+		// return (
+		// 	<Select
+		// 		readonly={readOnly}
+		// 		value={value}
+		// 		onChange={onChangeCurrency}
+		// 		label={t('select currency')}
+		// 		className={classNames('', {}, [className])}
+		// 		options={options}
+		// 	></Select>
+		// );
 	}
 );
