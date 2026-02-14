@@ -36,7 +36,7 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
 	const dispatch = useAppDispatch();
 	const readonly = useSelector(getProfileReadonly);
 	const validateErrors = useSelector(getProfileValidateErrors);
-	const { t } = useTranslation('profile');
+	const { t } = useTranslation();
 	const { id } = useParams<{ id: string }>();
 
 	const ValidateProfileTranslate = {

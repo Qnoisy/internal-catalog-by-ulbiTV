@@ -42,7 +42,7 @@ const reducerList: ReducersList = {
 
 const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ className }) => {
 	const { id } = useParams<{ id: string }>();
-	const { t } = useTranslation('articles');
+	const { t } = useTranslation();
 	const dispatch = useAppDispatch();
 	const comments = useSelector(getArticleComments.selectAll);
 	const isLoading = useSelector(getArticleCommentsIsLoading);

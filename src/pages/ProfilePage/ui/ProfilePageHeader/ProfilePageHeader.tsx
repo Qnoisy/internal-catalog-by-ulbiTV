@@ -20,7 +20,7 @@ interface ProfilePageHeaderProps {
 
 export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({ className }) => {
 	const readOnly = useSelector(getProfileReadonly);
-	const { t } = useTranslation('profile');
+	const { t } = useTranslation();
 	const dispatch = useAppDispatch();
 	const authData = useSelector(getUserAuthData);
 	const profileData = useSelector(getProfileData);

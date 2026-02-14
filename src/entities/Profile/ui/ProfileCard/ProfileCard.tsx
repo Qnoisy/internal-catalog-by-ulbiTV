@@ -28,7 +28,7 @@ interface ProfileProps {
 }
 
 export const ProfileCard: React.FC<ProfileProps> = props => {
-	const { t } = useTranslation('profile');
+	const { t } = useTranslation();
 	const {
 		className,
 		data,

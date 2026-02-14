@@ -14,7 +14,7 @@ interface SidebartemProps {
 }
 
 export const SidebarItem: React.FC<SidebartemProps> = ({ item, collapsed }) => {
-	const { t } = useTranslation([item.text]);
+	const { t } = useTranslation();
 	const isAuth = useSelector(getUserAuthData);
 
 	if (item.authOnly && !isAuth) {
