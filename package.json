@@ -15,7 +15,8 @@
 		"lint:scss:fix": "stylelint \"**/*.scss\" --fix",
 		"storybook": "start-storybook -p 6006 -c ./config/storybook",
 		"build-storybook": "build-storybook -c ./config/storybook",
-		"test:unit": "jest --config ./config/jest/jest.config.ts"
+		"test:unit": "jest --config ./config/jest/jest.config.ts",
+		"generate:Slice": "node ./scripts/createSlice/index.js"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.17.5",
