@@ -1,4 +1,3 @@
-import { ArticleDetails } from './../../../../entities/Article/ui/ArticleDetails/ArticleDetails';
 import { AnyAction, CombinedState, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { EnhancedStore } from '@reduxjs/toolkit/dist/configureStore';
 import { AxiosInstance } from 'axios';
@@ -10,19 +9,19 @@ import { AddCommentFormShema } from 'features/AddCommentForm';
 
 import { loginSchema } from 'features/AuthByUsername';
 import { ScrollSaveShema } from 'features/ScrollSave';
-import { ArticleDetailCommentsShema } from 'pages/ArticleDetaildsPage';
 import { ArticleDetailsPageShema } from 'pages/ArticleDetaildsPage/model/types';
-import { ArticleDetailsRecommendationsShema } from 'pages/ArticleDetaildsPage/model/types/ArticleDetailsRecommendationsShema';
 import { ArticlePageShema } from 'pages/ArticlesPage';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
 	counter: CounterSchema;
 	user: UserSchema;
 	scrollSave: ScrollSaveShema;
+	[rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
 	login?: loginSchema;
 	profile?: ProfileShema;
-	articleDetails?: ArticleDetailsShema
+	articleDetails?: ArticleDetailsShema;
 	addCommentForm?: AddCommentFormShema;
 	articlesPage?: ArticlePageShema;
 	// articleDetailsRecommendations?: ArticleDetailsRecommendationsShema;

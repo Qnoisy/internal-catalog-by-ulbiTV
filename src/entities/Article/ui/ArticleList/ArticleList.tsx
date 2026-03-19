@@ -24,7 +24,7 @@ const getSkeletons = (view: ArticleView) =>
 
 export const ArticleList: React.FC<ArticleListProps> = ({
 	className,
-	articles,
+	articles = [],
 	view = ArticleView.SMALL,
 	isLoading,
 	target,
@@ -66,7 +66,7 @@ export const ArticleList: React.FC<ArticleListProps> = ({
 						gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))',
 						paddingRight: 20,
 						paddingTop: 20,
-						...style
+						width: '100%'
 					}}
 				>
 					{children}
