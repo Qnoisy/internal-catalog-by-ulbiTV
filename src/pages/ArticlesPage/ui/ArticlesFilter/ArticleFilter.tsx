@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import styles from './ArticlesPageFilter.module.scss';
+import styles from './ArticlesFilter.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleView, ArticleViewSelector } from 'entities/Article';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -26,7 +26,7 @@ interface ArticlesPageFilterProps {
 	className?: string;
 }
 
-export const ArticlesPageFilter: React.FC<ArticlesPageFilterProps> = ({ className }) => {
+export const ArticlesFilter: React.FC<ArticlesPageFilterProps> = ({ className }) => {
 	const view = useSelector(getArticlePageView);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
@@ -84,7 +84,7 @@ export const ArticlesPageFilter: React.FC<ArticlesPageFilterProps> = ({ classNam
 	);
 
 	return (
-		<div className={classNames(styles.ArticlesPageFilter, {}, [className])}>
+		<div className={classNames(styles.ArticlesFilter, {}, [className])}>
 			<div className={styles.sortWrapper}>
 				<ArticleSortSelector
 					order={order}

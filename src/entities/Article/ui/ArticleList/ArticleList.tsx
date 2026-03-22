@@ -6,7 +6,7 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import styles from './ArticleList.module.scss';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { ArticlesPageFilter } from 'pages/ArticlesPage/ui/ArticlesPageFilter/ArticlesPageFilter';
+import { ArticlesFilter } from 'pages/ArticlesPage/ui/ArticlesFilter/ArticleFilter';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { useParams } from 'react-router-dom';
 
@@ -33,12 +33,6 @@ export const ArticleList: React.FC<ArticleListProps> = ({
 	const { t } = useTranslation();
 	const { id } = useParams();
 	const hasId = Boolean(id);
-	const Header = useCallback(() => <ArticlesPageFilter />, []);
-
-	const Footer = useCallback(() => {
-		if (isLoading) return <div className={styles.sceleton}>{getSkeletons(view)}</div>;
-		return null;
-	}, [isLoading, view]);
 
 	const renderArticles = useCallback(
 		(index: number, article: Article) => (
@@ -78,6 +72,16 @@ export const ArticleList: React.FC<ArticleListProps> = ({
 		)
 	};
 
+	const mods: Mods = {
+		[styles.left]: !id
+	};
+
+	const Header = useCallback(() => <ArticlesFilter />, []);
+	const Footer = useCallback(() => {
+		if (isLoading) return <div className={styles.sceleton}>{getSkeletons(view)}</div>;
+		return null;
+	}, [isLoading, view]);
+
 	if (!isLoading && !articles.length) {
 		return (
 			<div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
@@ -85,10 +89,6 @@ export const ArticleList: React.FC<ArticleListProps> = ({
 			</div>
 		);
 	}
-
-	const mods: Mods = {
-		[styles.left]: !id
-	};
 
 	return (
 		<div className={classNames(styles.ArticleList, mods, [className, styles[view]])}>

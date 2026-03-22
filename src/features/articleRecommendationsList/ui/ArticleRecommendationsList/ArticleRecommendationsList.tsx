@@ -2,30 +2,17 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { Text, TextSize } from 'shared/ui/Text/Text';
-import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
 import { VStack } from 'shared/ui/Stack';
-import { rtkApi } from 'shared/api/rtkApi';
+
 import cls from './ArticleRecommendationsList.module.scss';
 import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from 'entities/Article';
 import { useParams } from 'react-router-dom';
+import { useArticleRecommendationsList } from 'features/articleRecommendationsList/api/articleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {
 	className?: string;
 }
-
-const recommendationsApi = rtkApi.injectEndpoints({
-	endpoints: build => ({
-		getArticleRecommendationsList: build.query({
-			query: ({ limit, excludeId }) => ({
-				url: '/articles',
-				params: { _limit: limit, id_ne: excludeId }
-			})
-		})
-	})
-});
-
-const useArticleRecommendationsList = recommendationsApi.useGetArticleRecommendationsListQuery;
 
 export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
 	const { className } = props;
