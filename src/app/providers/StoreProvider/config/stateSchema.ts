@@ -3,11 +3,12 @@ import { EnhancedStore } from '@reduxjs/toolkit/dist/configureStore';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsShema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
-import { ProfileShema } from 'entities/Profile';
+
 import { UserSchema } from 'entities/User';
 import { AddCommentFormShema } from 'features/AddCommentForm';
 
 import { loginSchema } from 'features/AuthByUsername';
+import { ProfileShema } from 'features/editableProfileCard/model/types/editableProfileCardSchema';
 import { ScrollSaveShema } from 'features/ScrollSave';
 import { ArticleDetailsPageShema } from 'pages/ArticleDetaildsPage/model/types';
 import { ArticlePageShema } from 'pages/ArticlesPage';

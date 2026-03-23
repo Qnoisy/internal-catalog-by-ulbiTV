@@ -1,6 +1,7 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { ValidateProfileErrors } from '../../types/profile';
+
 import { getProfileValidateErrors } from '../getProfileValidateErrors';
+import { ValidateProfileErrors } from '../../types/editableProfileCardSchema';
 
 describe('getProfileValidateErrors.test', () => {
 	test('should return redonly data', () => {

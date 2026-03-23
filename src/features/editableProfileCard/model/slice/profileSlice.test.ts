@@ -1,8 +1,9 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { updateProfileData } from 'entities/Profile';
-import { ProfileShema, ValidateProfileErrors } from '../types/profile';
+
 import { profileActions, profileReducer } from './profileSlice';
+import { ProfileShema, ValidateProfileErrors } from '../types/editableProfileCardSchema';
+import { updateProfileData } from '../service/updateProfileData/updateProfileData';
 
 const data = {
 	first: 'Maksym',

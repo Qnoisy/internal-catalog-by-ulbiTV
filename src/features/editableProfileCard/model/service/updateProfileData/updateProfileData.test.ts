@@ -1,8 +1,9 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
-import { ValidateProfileErrors } from '../../types/profile';
+
 import { updateProfileData } from './updateProfileData';
+import { ValidateProfileErrors } from '../../types/editableProfileCardSchema';
 
 const data = {
 	first: 'Maksym',
