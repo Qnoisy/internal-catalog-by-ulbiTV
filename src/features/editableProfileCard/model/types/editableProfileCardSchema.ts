@@ -3,7 +3,7 @@ import { Profile } from 'entities/Profile/model/types/profile';
 export interface ProfileShema {
 	data?: Profile;
 	form?: Profile;
-	isLoading: boolean;
+	isLoading?: boolean;
 	error?: string;
 	readonly: boolean;
 	validateErrors?: ValidateProfileErrors[];

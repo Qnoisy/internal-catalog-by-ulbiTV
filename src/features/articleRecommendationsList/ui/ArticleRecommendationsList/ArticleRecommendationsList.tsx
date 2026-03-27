@@ -27,19 +27,14 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
 		excludeId: id!
 	});
 
-	if (isLoading || isError) return null;
+	if (isLoading || isError || !articles) return null;
 
 	return (
 		<VStack gap='8' className={classNames('', {}, [className])}>
 			<Text size={TextSize.L} title={t('Recommends')} />
 			<div className={cls.list}>
 				{articles.map((article: Article) => (
-					<ArticleListItem
-						key={article.id}
-						article={article}
-						view={ArticleView.SMALL}
-						target='_blank'
-					/>
+					<ArticleListItem key={article.id} article={article} view={ArticleView.SMALL} />
 				))}
 			</div>
 		</VStack>

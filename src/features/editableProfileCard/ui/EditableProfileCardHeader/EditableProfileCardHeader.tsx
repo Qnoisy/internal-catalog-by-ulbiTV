@@ -45,13 +45,21 @@ export const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps>
 			{canEdit && (
 				<>
 					{readOnly ? (
-						<Button onClick={onEdit}>{t('edit')}</Button>
+						<Button data-testid={`EditableProfileCardHeader.EditButton`} onClick={onEdit}>
+							{t('edit')}
+						</Button>
 					) : (
 						<HStack gap={'8'}>
-							<Button onClick={onCancel} theme={ButtonTheme.OUTLINE_RED}>
+							<Button
+								data-testid={`EditableProfileCardHeader.CancelButton`}
+								onClick={onCancel}
+								theme={ButtonTheme.OUTLINE_RED}
+							>
 								{t('cancel')}
 							</Button>
-							<Button onClick={onSave}>{t('save')}</Button>
+							<Button data-testid={'EditableProfileCardHeader.SaveButton'} onClick={onSave}>
+								{t('save')}
+							</Button>
 						</HStack>
 					)}
 				</>
