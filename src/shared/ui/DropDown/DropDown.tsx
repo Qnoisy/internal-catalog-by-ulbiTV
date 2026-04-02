@@ -7,6 +7,7 @@ import { DropDownDirection } from 'shared/types/ui';
 import { AppLink } from '../AppLink/AppLink';
 
 interface DropDownItem {
+	id: string;
 	href?: string;
 	content?: ReactNode;
 	disabled?: boolean;
@@ -35,10 +36,9 @@ export default function Dropdown(props: DropDownProps) {
 			<Menu.Button className={styles.btn}>{trigger}</Menu.Button>
 
 			<Menu.Items className={classNames(styles.items, {}, [DropDownMapper[direction]])}>
-				{items.map((item, index) => {
+				{items.map(item => {
 					const content = ({ active }: { active: boolean }) => (
 						<button
-							key={index}
 							disabled={item.disabled}
 							type='button'
 							onClick={item.onClick}
@@ -50,14 +50,14 @@ export default function Dropdown(props: DropDownProps) {
 
 					if (item.href) {
 						return (
-							<Menu.Item as={AppLink} to={item.href} disabled={item.disabled}>
+							<Menu.Item key={item.id} as={AppLink} to={item.href} disabled={item.disabled}>
 								{content}
 							</Menu.Item>
 						);
 					}
 
 					return (
-						<Menu.Item as={Fragment} disabled={item.disabled}>
+						<Menu.Item key={item.id} as={Fragment} disabled={item.disabled}>
 							{content}
 						</Menu.Item>
 					);

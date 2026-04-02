@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { forwardRef, memo } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './AppLink.module.scss';
@@ -14,11 +14,12 @@ interface AppLinkProps extends LinkProps {
 	theme?: AppLinkTheme;
 }
 
-export const AppLink: React.FC<AppLinkProps> = memo(props => {
+export const AppLink = forwardRef<HTMLAnchorElement, AppLinkProps>((props, ref) => {
 	const { to, className, children, theme = AppLinkTheme.PRIMARY, ...otherProps } = props;
 
 	return (
 		<Link
+			ref={ref}
 			to={to}
 			className={classNames(styles.AppLink, {}, [className, styles[theme]])}
 			{...otherProps}

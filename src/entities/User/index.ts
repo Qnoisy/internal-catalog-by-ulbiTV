@@ -1,3 +1,7 @@
+export { getUserRoles } from './model/selectors/getUserRoles';
+
+export { isUserAdmin, isUserManager } from './model/selectors/getUserRoles';
+
 export { getUserInited } from './model/selectors/getUserInited';
 
 export { getUserAuthData } from './model/selectors/getUserAuthData';
