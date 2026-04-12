@@ -4,6 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 
 export function buildPlugins({
 	paths,
@@ -24,14 +25,19 @@ export function buildPlugins({
 			__API__: JSON.stringify(apiUrl),
 			__PROJECT__: JSON.stringify('frontend')
 		}),
-		new ReactRefreshWebpackPlugin()
-	];
-	plugins.push(
-		new BundleAnalyzerPlugin({
-			openAnalyzer: false
+		new ReactRefreshWebpackPlugin(),
+		new CircularDependencyPlugin({
+			exclude: /node_modules/,
+			failOnError: true
 		})
-	);
+	];
+
 	if (isDev) {
+		plugins.push(
+			new BundleAnalyzerPlugin({
+				openAnalyzer: false
+			})
+		);
 	}
 
 	return plugins;
