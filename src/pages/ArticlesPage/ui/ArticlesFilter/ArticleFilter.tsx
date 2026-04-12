@@ -16,11 +16,12 @@ import { useTranslation } from 'react-i18next';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { ArticleSortSelector } from 'features/ArticleSortSelector/ArticleSortSelector';
-import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article';
+
 import { SortOrder } from 'shared/types/types';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/service/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { ArticleTypeTabs } from 'features/ArticleTypeTabs/ArticleTypeTabs';
+import { ArticleSortField, ArticleType } from 'entities/Article/model/const/const';
 
 interface ArticlesPageFilterProps {
 	className?: string;

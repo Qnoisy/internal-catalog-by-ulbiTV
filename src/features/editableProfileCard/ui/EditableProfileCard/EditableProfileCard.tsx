@@ -15,13 +15,12 @@ import {
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import cls from './EditableProfileCard.module.scss';
-import { ValidateProfileErrors } from 'features/editableProfileCard/model/types/editableProfileCardSchema';
+
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { ValidateProfileErrors } from 'features/editableProfileCard/model/const/const';
 
 interface EditableProfileCardProps {
 	className?: string;

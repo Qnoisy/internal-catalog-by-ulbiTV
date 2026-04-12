@@ -10,7 +10,7 @@ import {
 	getScrollSave,
 	getScrollSaveByPath
 } from 'features/ScrollSave/model/selectors/getScrollSaveSelectors';
-import { StateSchema } from 'app/providers/StoreProvider';
+import type { StateSchema } from 'app/providers/StoreProvider';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 
 interface PageProps {

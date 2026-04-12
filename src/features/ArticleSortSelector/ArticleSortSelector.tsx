@@ -3,8 +3,9 @@ import styles from './ArticleSortSelector.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Select, SelectOptions } from 'shared/ui/Select/Select';
 import { useTranslation } from 'react-i18next';
-import { ArticleSortField } from 'entities/Article/model/types/article';
+
 import { SortOrder } from 'shared/types/types';
+import { ArticleSortField } from 'entities/Article/model/const/const';
 
 interface ArticleSortSelectorProps {
 	className?: string;

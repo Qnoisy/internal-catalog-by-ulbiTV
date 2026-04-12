@@ -5,7 +5,7 @@ import {
 } from 'entities/Article/model/selectors/getArticleDetails';
 import { fetchArticleById } from 'entities/Article/model/service/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/article';
+
 import React, { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -22,6 +22,8 @@ import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/Articl
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import styles from './ArticleDetails.module.scss';
 import { HStack, VStack } from 'shared/ui/Stack';
+import { ArticleBlockType } from 'entities/Article/model/const/const';
+import { ArticleBlock } from 'entities/Article/model/types/article';
 
 interface ArticleDetailsProps {
 	className?: string;

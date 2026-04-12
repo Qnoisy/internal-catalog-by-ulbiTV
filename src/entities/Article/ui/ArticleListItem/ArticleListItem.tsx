@@ -1,9 +1,4 @@
-import {
-	Article,
-	ArticleBlockType,
-	ArticleTextBlock,
-	ArticleView
-} from 'entities/Article/model/types/article';
+import { Article, ArticleTextBlock } from 'entities/Article/model/types/article';
 import React, { HTMLAttributeAnchorTarget, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -18,6 +13,7 @@ import { Text } from 'shared/ui/Text/Text';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import styles from './ArticleListItem.module.scss';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { ArticleBlockType, ArticleView } from 'entities/Article/model/const/const';
 
 interface ArticleListItemProps {
 	className?: string;

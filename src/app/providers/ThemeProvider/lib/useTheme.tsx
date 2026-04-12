@@ -1,5 +1,5 @@
 import { useCallback, useContext } from 'react';
-import { Theme, ThemeContext } from './ThemeContext';
+import { Theme, ThemeContext } from '../const/const';
 
 export interface UseThemeResult {
 	toggleTheme: () => void;

@@ -2,7 +2,7 @@ import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 
 import { validateProfileData } from './validateProfileData';
-import { ValidateProfileErrors } from '../../types/editableProfileCardSchema';
+import { ValidateProfileErrors } from '../../const/const';
 
 const data = {
 	first: 'Maksym',

@@ -1,6 +1,6 @@
 import React, { HTMLAttributeAnchorTarget, useCallback } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import styles from './ArticleList.module.scss';
@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { ArticlesFilter } from 'pages/ArticlesPage/ui/ArticlesFilter/ArticleFilter';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { useParams } from 'react-router-dom';
+import { ArticleView } from 'entities/Article/model/const/const';
 
 interface ArticleListProps {
 	className?: string;

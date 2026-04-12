@@ -1,18 +1,19 @@
 import { AnyAction, CombinedState, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { EnhancedStore } from '@reduxjs/toolkit/dist/configureStore';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsShema } from 'entities/Article';
-import { CounterSchema } from 'entities/Counter';
+import type { ArticleDetailsShema } from 'entities/Article';
+import type { CounterSchema } from 'entities/Counter';
 
 import { UserSchema } from 'entities/User';
 import { AddCommentFormShema } from 'features/AddCommentForm';
 
-import { loginSchema } from 'features/AuthByUsername';
-import { ProfileShema } from 'features/editableProfileCard/model/types/editableProfileCardSchema';
-import { ScrollSaveShema } from 'features/ScrollSave';
-import { ArticleDetailsPageShema } from 'pages/ArticleDetaildsPage/model/types';
-import { ArticlePageShema } from 'pages/ArticlesPage';
+import type { loginSchema } from 'features/AuthByUsername';
+import type { ProfileShema } from 'features/editableProfileCard/model/types/editableProfileCardSchema';
+import type { ScrollSaveShema } from 'features/ScrollSave';
+import type { ArticleDetailsPageShema } from 'pages/ArticleDetaildsPage/model/types';
+import type { ArticlePageShema } from 'pages/ArticlesPage';
 import { rtkApi } from 'shared/api/rtkApi';
+import { createReduxStore } from './store';
 
 export interface StateSchema {
 	counter: CounterSchema;
@@ -51,3 +52,4 @@ export interface ThunkConfig<T> {
 	extra: ThunkExtraArg;
 	state: StateSchema;
 }
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

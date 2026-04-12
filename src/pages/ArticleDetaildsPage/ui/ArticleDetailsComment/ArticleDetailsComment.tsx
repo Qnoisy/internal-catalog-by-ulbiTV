@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { Suspense, useCallback, useEffect } from 'react';
 import styles from './ArticleDetailsComment.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AddCommentForm } from 'features/AddCommentForm';
@@ -37,7 +37,9 @@ export const ArticleDetailsComment: React.FC<ArticleDetailsCommentProps> = ({ cl
 	return (
 		<div className={classNames(styles.ArticleDetailsComment, {}, [className])}>
 			<Text size={TextSize.L} className={styles.commentTitle} title={t('CommentTitle')} />
-			<AddCommentForm onSendComment={onSendComment} />
+			<Suspense fallback={t('loading')}>
+				<AddCommentForm onSendComment={onSendComment} />
+			</Suspense>
 			<CommentList isLoading={isLoading} comments={comments} />
 		</div>
 	);
