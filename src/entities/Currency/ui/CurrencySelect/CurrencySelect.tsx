@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Select } from 'shared/ui/Select/Select';
 import { Currency } from '../../model/types/currency';
 import { Listbox } from '@headlessui/react';
-import { MyListbox } from 'shared/ui/ListBox/ListBox';
+import { MyListbox } from 'shared/ui/Popups/ui/ListBox/ListBox';
 
 interface CurrencySelectProps {
 	className?: string;

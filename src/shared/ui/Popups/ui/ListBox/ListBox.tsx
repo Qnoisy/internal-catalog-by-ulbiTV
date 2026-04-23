@@ -1,10 +1,12 @@
 import { Listbox } from '@headlessui/react';
 import { Fragment, ReactNode, useState } from 'react';
 import cls from './ListBox.module.scss';
-import { HStack } from '../Stack';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from '../Button/Button';
 import { DropDownDirection } from 'shared/types/ui';
+import { Button } from 'shared/ui/Button/Button';
+import { HStack } from 'shared/ui/Stack';
+import { mapDirectionClass } from '../../styles/const';
+import popupCls from '../../styles/popup.module.scss';
 
 interface ListBoxItems {
 	value: string;
@@ -22,13 +24,6 @@ interface ListBoxProps {
 	disabled?: boolean;
 }
 
-const DropDownMapper: Record<DropDownDirection, string> = {
-	'bottom left': cls.optionsBottomLeft,
-	'bottom right': cls.optionsBottomRight,
-	'top left': cls.optionsTopLeft,
-	'top right': cls.optionsTopRight
-};
-
 export function MyListbox(props: ListBoxProps) {
 	const {
 		direction = 'bottom left',
@@ -41,10 +36,14 @@ export function MyListbox(props: ListBoxProps) {
 		disabled
 	} = props;
 
-	const clsDirection = [DropDownMapper[direction], cls.options];
+	const clsDirection = [mapDirectionClass[direction], cls.options];
 
 	return (
-		<HStack align='center' gap='8' className={classNames(cls.ListBoks, {}, [className])}>
+		<HStack
+			align='center'
+			gap='8'
+			className={classNames(cls.ListBoks, {}, [className, popupCls.popup])}
+		>
 			<label className={cls.label}>{`${label}>`}</label>
 
 			<Listbox as={'div'} className={cls.wrapper} value={value} onChange={onChange}>
@@ -64,9 +63,11 @@ export function MyListbox(props: ListBoxProps) {
 						>
 							{({ active, selected }) => (
 								<li
-									className={classNames('', { [cls.active]: active, [cls.disabled]: disabled }, [
-										cls.item
-									])}
+									className={classNames(
+										'',
+										{ [popupCls.active]: active, [popupCls.disabled]: disabled },
+										[cls.item]
+									)}
 								>
 									{item.value}
 									{selected && '>'}

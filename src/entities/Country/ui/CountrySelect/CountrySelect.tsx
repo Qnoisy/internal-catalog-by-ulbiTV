@@ -2,8 +2,7 @@ import { Country } from 'entities/Country/model/types/country';
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { MyListbox } from 'shared/ui/ListBox/ListBox';
-import { Select } from 'shared/ui/Select/Select';
+import { MyListbox } from 'shared/ui/Popups/ui/ListBox/ListBox';
 
 interface CountrySelectProps {
 	readOnly?: boolean;

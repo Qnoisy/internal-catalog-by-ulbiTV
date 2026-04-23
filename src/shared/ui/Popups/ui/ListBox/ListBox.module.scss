@@ -1,0 +1,31 @@
+.wrapper {
+	position: relative;
+}
+// .trigger {
+// 	background: none;
+// 	padding: none;
+// 	margin: none;
+// 	outline: none;
+// 	border: none;
+// }
+.btn {
+	min-width: 100px;
+}
+
+.options {
+	background-color: var(--card-bg);
+	position: absolute;
+	z-index: 10;
+	border-radius: 0 0 12px 12px;
+	cursor: pointer;
+	width: 100%;
+	text-align: center;
+}
+
+.options {
+	overflow: hidden;
+}
+
+.item {
+	padding: 5px;
+}
