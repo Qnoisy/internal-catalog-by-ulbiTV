@@ -9,6 +9,7 @@ import React, {
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import styles from './Modal.module.scss';
+import { Overlay } from '../Overlay/Overlay';
 
 interface ModalProps {
 	className?: string;
@@ -77,11 +78,11 @@ export const Modal: React.FC<ModalProps> = (props: ModalProps) => {
 	return (
 		<Portal>
 			<div className={classNames(styles.Modal, mods, [className])}>
-				<div onClick={handlerClose} className={styles.overlay}>
+				<Overlay onClick={handlerClose} className={styles.overlay}>
 					<div onClick={stopProp} className={styles.content}>
 						{children}
 					</div>
-				</div>
+				</Overlay>
 			</div>
 		</Portal>
 	);

@@ -13,6 +13,11 @@ body {
 	background: var(--bg-color);
 }
 
+.app_drawer {
+	font: var(--font-m);
+	color: var(--primary-color);
+}
+
 .content-page {
 	display: flex;
 }
