@@ -1,7 +1,10 @@
 import { articlesPageReducer } from 'pages/ArticlesPage/model/slice/articlePageSlice';
 import React, { memo, useCallback, useEffect } from 'react';
 
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import {
+	DynamicModuleLoader,
+	ReducersList
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/service/fetchNextArticlesPage/fetchNextArticlesPage';

@@ -2,7 +2,10 @@ import { ArticleDetails } from 'entities/Article';
 import React, { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import {
+	DynamicModuleLoader,
+	ReducersList
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import styles from './ArticleDetailPage.module.scss';
 import { Page } from 'widgets/Page/Page';
 
