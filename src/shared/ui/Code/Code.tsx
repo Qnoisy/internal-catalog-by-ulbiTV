@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import CopyIcon from '../../assets/icons/copy-20-20.svg';
 import { Button, ButtonTheme } from '../Button/Button';
 import styles from './Code.module.scss';

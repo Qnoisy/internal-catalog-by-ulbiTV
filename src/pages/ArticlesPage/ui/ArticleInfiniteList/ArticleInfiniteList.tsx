@@ -1,14 +1,14 @@
 import React from 'react';
-import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
+import { ArticleList } from '@/entities/Article/ui/ArticleList/ArticleList';
 import { useSelector } from 'react-redux';
-import { getArticles } from 'pages/ArticlesPage/model/slice/articlePageSlice';
+import { getArticles } from '@/pages/ArticlesPage/model/slice/articlePageSlice';
 import {
 	getArticlePageError,
 	getArticlePageHasMore,
 	getArticlePageisLoading,
 	getArticlePageView
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { Text } from 'shared/ui/Text/Text';
+} from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { Text } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 
 interface ArticleInfiniteListProps {

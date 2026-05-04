@@ -1,17 +1,17 @@
 import React, { Children, MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from 'react';
 import styles from './Page.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ScrolSaveActions } from 'features/ScrollSave';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ScrolSaveActions } from '@/features/ScrollSave';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {
 	getScrollSave,
 	getScrollSaveByPath
-} from 'features/ScrollSave/model/selectors/getScrollSaveSelectors';
-import type { StateSchema } from 'app/providers/StoreProvider';
-import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
+} from '@/features/ScrollSave/model/selectors/getScrollSaveSelectors';
+import type { StateSchema } from '@/app/providers/StoreProvider';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 
 interface PageProps {
 	className?: string;

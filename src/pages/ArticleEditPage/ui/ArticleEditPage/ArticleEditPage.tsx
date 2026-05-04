@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ArticleEditPage.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 

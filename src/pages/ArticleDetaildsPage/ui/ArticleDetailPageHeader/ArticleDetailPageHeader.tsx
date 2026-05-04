@@ -1,13 +1,13 @@
 import React, { useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
-import { getArticleCanEdit } from 'pages/ArticleDetaildsPage/model/selectors/article';
-import { getUserAuthData } from 'entities/User';
-import { HStack } from 'shared/ui/Stack';
+import { getArticleCanEdit } from '@/pages/ArticleDetaildsPage/model/selectors/article';
+import { getUserAuthData } from '@/entities/User';
+import { HStack } from '@/shared/ui/Stack';
 
 interface ArticleDetailPageHeaderProps {
 	className?: string;

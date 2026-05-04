@@ -1,12 +1,12 @@
 import { fireEvent, screen } from '@testing-library/react';
-import { componentRender } from 'shared/lib/tests/сomponentRender';
+import { componentRender } from '@/shared/lib/tests/сomponentRender';
 import { EditableProfileCard } from './EditableProfileCard';
-import { Profile } from 'entities/Profile/model/types/profile';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
+import { Profile } from '@/entities/Profile/model/types/profile';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
 import { userEvent } from '@testing-library/user-event';
-import { $api } from 'shared/api/api';
+import { $api } from '@/shared/api/api';
 
 jest.mock('features/editableProfileCard/model/service/updateProfileData/updateProfileData', () => {
 	return {

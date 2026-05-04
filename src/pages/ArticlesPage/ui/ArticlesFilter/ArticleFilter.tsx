@@ -1,27 +1,27 @@
 import React, { useCallback } from 'react';
 import styles from './ArticlesFilter.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleView, ArticleViewSelector } from 'entities/Article';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleView, ArticleViewSelector } from '@/entities/Article';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
 	getArticlePageOrder,
 	getArticlePageSearch,
 	getArticlePageSort,
 	getArticlePageType,
 	getArticlePageView
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+} from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { useSelector } from 'react-redux';
-import { articlesPageActions } from 'pages/ArticlesPage/model/slice/articlePageSlice';
+import { articlesPageActions } from '@/pages/ArticlesPage/model/slice/articlePageSlice';
 import { useTranslation } from 'react-i18next';
-import { Card } from 'shared/ui/Card/Card';
-import { Input } from 'shared/ui/Input/Input';
-import { ArticleSortSelector } from 'features/ArticleSortSelector/ArticleSortSelector';
+import { Card } from '@/shared/ui/Card/Card';
+import { Input } from '@/shared/ui/Input/Input';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector/ArticleSortSelector';
 
-import { SortOrder } from 'shared/types/types';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/service/fetchArticlesList/fetchArticlesList';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { ArticleTypeTabs } from 'features/ArticleTypeTabs/ArticleTypeTabs';
-import { ArticleSortField, ArticleType } from 'entities/Article/model/const/const';
+import { SortOrder } from '@/shared/types/types';
+import { fetchArticlesList } from '@/pages/ArticlesPage/model/service/fetchArticlesList/fetchArticlesList';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs/ArticleTypeTabs';
+import { ArticleSortField, ArticleType } from '@/entities/Article/model/const/const';
 
 interface ArticlesPageFilterProps {
 	className?: string;

@@ -1,19 +1,19 @@
-import { Article, ArticleTextBlock } from 'entities/Article/model/types/article';
+import { Article, ArticleTextBlock } from '@/entities/Article/model/types/article';
 import React, { HTMLAttributeAnchorTarget, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Card } from 'shared/ui/Card/Card';
-import { Icon } from 'shared/ui/Icon/Icon';
-import { Text } from 'shared/ui/Text/Text';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Card } from '@/shared/ui/Card/Card';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import { Text } from '@/shared/ui/Text/Text';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import styles from './ArticleListItem.module.scss';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { ArticleBlockType, ArticleView } from 'entities/Article/model/const/const';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { ArticleBlockType, ArticleView } from '@/entities/Article/model/const/const';
 
 interface ArticleListItemProps {
 	className?: string;

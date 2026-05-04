@@ -1,4 +1,4 @@
-export type { Article, ArticleBlock } from 'entities/Article/model/types/article';
+export type { Article, ArticleBlock } from '@/entities/Article/model/types/article';
 
 export { ArticleView } from './model/const/const';
 

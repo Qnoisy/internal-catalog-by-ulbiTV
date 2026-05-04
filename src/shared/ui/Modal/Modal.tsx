@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import styles from './Modal.module.scss';
 import { Overlay } from '../Overlay/Overlay';
-import { useModal } from 'shared/lib/hooks/useModal/useModal';
+import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 
 interface ModalProps {
 	className?: string;
@@ -39,7 +39,7 @@ export const Modal: React.FC<ModalProps> = (props: ModalProps) => {
 	return (
 		<Portal>
 			<div className={classNames(styles.Modal, mods, [className])}>
-				<Overlay onClick={close} className={styles.overlay} />
+				<Overlay onClick={close} />
 				<div onClick={stopProp} className={styles.content}>
 					{children}
 				</div>

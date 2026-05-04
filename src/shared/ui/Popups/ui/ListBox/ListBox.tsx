@@ -1,10 +1,10 @@
 import { Listbox } from '@headlessui/react';
 import { Fragment, ReactNode, useState } from 'react';
 import cls from './ListBox.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DropDownDirection } from 'shared/types/ui';
-import { Button } from 'shared/ui/Button/Button';
-import { HStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DropDownDirection } from '@/shared/types/ui';
+import { Button } from '@/shared/ui/Button/Button';
+import { HStack } from '@/shared/ui/Stack';
 import { mapDirectionClass } from '../../styles/const';
 import popupCls from '../../styles/popup.module.scss';
 

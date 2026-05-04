@@ -1,20 +1,20 @@
-import { articlesPageReducer } from 'pages/ArticlesPage/model/slice/articlePageSlice';
+import { articlesPageReducer } from '@/pages/ArticlesPage/model/slice/articlePageSlice';
 import React, { memo, useCallback, useEffect } from 'react';
 
 import {
 	DynamicModuleLoader,
 	ReducersList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/service/fetchNextArticlesPage/fetchNextArticlesPage';
+import { fetchNextArticlesPage } from '@/pages/ArticlesPage/model/service/fetchNextArticlesPage/fetchNextArticlesPage';
 import { useSearchParams } from 'react-router-dom';
-import { initArticlesPage } from 'pages/ArticlesPage/model/service/initArticlePage/initArticlePage';
+import { initArticlesPage } from '@/pages/ArticlesPage/model/service/initArticlePage/initArticlePage';
 import { useSelector } from 'react-redux';
 import {
 	getArticlePageHasMore,
 	getArticlePageisLoading
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+} from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 
 interface ArticlesPageProps {
