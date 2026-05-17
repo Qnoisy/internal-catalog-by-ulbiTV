@@ -1,0 +1,66 @@
+.InputWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Input {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  outline: none;
+  color: transparent;
+  text-shadow: 0 0 0 var(--primary-color);
+}
+.Input:focus {
+  outline: none;
+}
+
+.placeholder {
+  margin-right: 5px;
+}
+
+.caretWrapper {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  position: relative;
+}
+
+.caret {
+  position: absolute;
+  height: 3px;
+  width: 9px;
+  background-color: var(--primary-color);
+  bottom: 0;
+  left: 0;
+  -webkit-animation: blick 0.7s forwards infinite;
+          animation: blick 0.7s forwards infinite;
+}
+
+@-webkit-keyframes blick {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.01;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blick {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.01;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.readonly {
+  opacity: 0.7;
+}

@@ -24,11 +24,7 @@ export const NotificationButton: React.FC<NotificationButtonProps> = ({ classNam
 		setIsOpen(false);
 	}, []);
 
-	const trigger = (
-		<Button onClick={handlerOpen} theme={ButtonTheme.CLEAR}>
-			<Icon Svg={NotificationIcon} inverted />
-		</Button>
-	);
+	const trigger = <Icon Svg={NotificationIcon} inverted />;
 
 	return (
 		<div>
@@ -42,7 +38,9 @@ export const NotificationButton: React.FC<NotificationButtonProps> = ({ classNam
 				</Popover>
 			</BrowserView>
 			<MobileView>
-				{trigger}
+				<Button onClick={handlerOpen} theme={ButtonTheme.CLEAR}>
+					<Icon Svg={NotificationIcon} inverted />
+				</Button>
 				<Drawer isOpen={isOpen} onClose={handlerClose}>
 					<NotificationList />
 				</Drawer>

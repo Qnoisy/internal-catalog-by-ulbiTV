@@ -1,0 +1,12 @@
+:root[data-theme=dark] {
+  --bg-color: #1e223f;
+  --inverted-bg-color: #5860a1;
+  --primary-color: rgb(136 175 136);
+  --secondary-color: #e6e6e6;
+  --inverted-primary-color: rgb(159 187 159);
+  --inverted-secondary-color: #fff;
+  --skeleton-color: #1515ad;
+  --skeleton-shadow: #2b2be8;
+  --code-bg: #1212a1;
+  --card-bg: #282d55;
+}

@@ -1,0 +1,7 @@
+.Tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+}

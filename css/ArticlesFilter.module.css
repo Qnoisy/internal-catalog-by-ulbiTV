@@ -1,0 +1,25 @@
+.ArticlesFilter {
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+.sortWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.search {
+  margin-top: 16px;
+}
+
+.tabs {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}

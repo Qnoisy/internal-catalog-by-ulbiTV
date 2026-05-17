@@ -12,7 +12,7 @@
   "You write uncorrect username or password": "You write uncorrect username or password",
   "Logout": "Logout",
   "Login": "Login",
-  "send": "send",
+  "send": "Send",
   "enter comment": "enter comment",
   "Read more": "Read more...",
   "sort by": "sort by",
@@ -65,5 +65,9 @@
   "admin panel": "Admin Panel",
   "Admin": "Admin",
   "Error roots": "Error roots",
-  "loading": "Loading"
+  "loading": "Loading",
+  "Your review": "Your review",
+  "titleArticle": "How do you like the article?",
+  "revievArticle": "Leave a review about the article",
+  "close": "Close"
 }

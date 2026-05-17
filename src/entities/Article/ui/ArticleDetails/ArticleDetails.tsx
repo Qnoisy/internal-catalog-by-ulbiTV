@@ -9,8 +9,8 @@ import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDet
 import React, { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
-import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg?react';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg?react';
 import {
 	DynamicModuleLoader,
 	ReducersList
