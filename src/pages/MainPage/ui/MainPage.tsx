@@ -12,7 +12,6 @@ const MainPage = memo(() => {
 		<Page>
 			{t('main page')}
 			<BugButton />
-			<RatingCard title={t('titleArticle')} feedbackTitle={t('revievArticle')} hasFeedBack={true} />
 		</Page>
 	);
 });

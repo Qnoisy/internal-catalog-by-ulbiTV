@@ -15,6 +15,7 @@ import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetailsComment } from '../ArticleDetailsComment/ArticleDetailsComment';
 import { useTranslation } from 'react-i18next';
+import { ArticleRating } from '@/features/articleRating';
 
 interface ArticleDetailPageProps {
 	className?: string;
@@ -36,12 +37,17 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ className }) => {
 		);
 	}
 
+	if (!id) {
+		return null;
+	}
+
 	return (
 		<DynamicModuleLoader reducers={reducerList} removeAfterUnmount>
 			<Page className={classNames(styles.ArticleDetailPage, {}, [className])}>
 				<VStack gap={'16'} max>
 					<ArticleDetailPageHeader />
 					<ArticleDetails id={id} />
+					<ArticleRating articleId={id} />
 					<ArticleRecommendationsList />
 					<ArticleDetailsComment id={id} />
 				</VStack>
