@@ -3,7 +3,6 @@ import React, { HTMLAttributeAnchorTarget, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg?react';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
@@ -14,6 +13,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import styles from './ArticleListItem.module.scss';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { ArticleBlockType, ArticleView } from '@/entities/Article/model/const/const';
+import { RoutePath } from '@/shared/const/router';
 
 interface ArticleListItemProps {
 	className?: string;
