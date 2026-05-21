@@ -47,7 +47,7 @@ export function MyListbox(props: ListBoxProps) {
 			<label className={cls.label}>{`${label}>`}</label>
 
 			<Listbox as={'div'} className={cls.wrapper} value={value} onChange={onChange}>
-				<Listbox.Button className={cls.trigger}>
+				<Listbox.Button as='div' className={cls.trigger}>
 					<Button disabled={disabled} className={cls.btn}>
 						{value ?? defaultValue}
 					</Button>

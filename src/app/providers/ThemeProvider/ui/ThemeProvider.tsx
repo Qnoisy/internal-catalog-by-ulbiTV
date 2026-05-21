@@ -1,5 +1,7 @@
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage';
+import { Theme } from '@/shared/const/theme';
+import { ThemeContext } from '@/shared/lib/contex/ThemeContext';
 import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../const/const';
 
 const systemPrefersDark = () =>
 	typeof window !== 'undefined' &&
@@ -18,7 +20,7 @@ interface ThemeProviderProps {
 	children: ReactNode;
 }
 
-const ThemeProvider: FC<ThemeProviderProps> = ({ initialTheme, children }) => {
+export const ThemeProvider: FC<ThemeProviderProps> = ({ initialTheme, children }) => {
 	const [theme, setTheme] = useState<Theme>(initialTheme ?? getInitialTheme());
 	useEffect(() => {
 		document.documentElement.setAttribute('data-theme', theme === Theme.DARK ? 'dark' : 'light');

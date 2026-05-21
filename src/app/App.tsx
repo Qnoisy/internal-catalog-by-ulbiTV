@@ -6,7 +6,7 @@ import { classNames } from '../shared/lib/classNames/classNames';
 import { getUserInited, UserActions } from '@/entities/User';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppRouter } from './providers/router';
-import { useTheme } from './providers/ThemeProvider';
+import useTheme from '@/shared/lib/hooks/useTheme/useTheme';
 
 const App = () => {
 	const { theme } = useTheme();
