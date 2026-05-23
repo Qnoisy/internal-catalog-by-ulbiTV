@@ -13,8 +13,8 @@ import {
 import { useSelector } from 'react-redux';
 import { articlesPageActions } from '@/pages/ArticlesPage/model/slice/articlePageSlice';
 import { useTranslation } from 'react-i18next';
-import { Card } from '@/shared/ui/Card/Card';
-import { Input } from '@/shared/ui/Input/Input';
+import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/Input';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector/ArticleSortSelector';
 
 import { SortOrder } from '@/shared/types/types';

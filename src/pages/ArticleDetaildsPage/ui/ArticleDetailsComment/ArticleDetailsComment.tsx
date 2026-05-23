@@ -3,7 +3,7 @@ import styles from './ArticleDetailsComment.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import { CommentList } from '@/entities/Comment';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { Text, TextSize } from '@/shared/ui/Text';
 import { getArticleComments } from '@/pages/ArticleDetaildsPage/model/slice/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '@/pages/ArticleDetaildsPage/model/selectors/comments';
 import { useSelector } from 'react-redux';

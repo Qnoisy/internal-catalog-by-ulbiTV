@@ -1,6 +1,6 @@
 import { memo, useMemo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 

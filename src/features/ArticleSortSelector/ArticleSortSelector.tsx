@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import styles from './ArticleSortSelector.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Select, SelectOptions } from '@/shared/ui/Select/Select';
+import { Select, SelectOptions } from '@/shared/ui/Select';
 import { useTranslation } from 'react-i18next';
 
 import { SortOrder } from '@/shared/types/types';

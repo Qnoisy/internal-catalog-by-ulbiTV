@@ -7,9 +7,9 @@ import { getUserAuthData } from '@/entities/User';
 import { profileActions } from '@/features/editableProfileCard/model/slice/profileSlice';
 import { updateProfileData } from '@/features/editableProfileCard/model/service/updateProfileData/updateProfileData';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { HStack } from '@/shared/ui/Stack';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { getProfileData } from '@/features/editableProfileCard/model/selectors/getProfileData/getProfileData';
 import { useTranslation } from 'react-i18next';
 

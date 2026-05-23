@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
-import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
+import { TabItem, Tabs } from '@/shared/ui/Tabs';
 
 import { useTranslation } from 'react-i18next';
 import { ArticleType } from '@/entities/Article/model/const/const';

@@ -4,7 +4,7 @@ import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import styles from './ArticleList.module.scss';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { ArticlesFilter } from '@/pages/ArticlesPage/ui/ArticlesFilter/ArticleFilter';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
