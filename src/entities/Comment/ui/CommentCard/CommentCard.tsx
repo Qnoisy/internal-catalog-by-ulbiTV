@@ -8,7 +8,7 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text } from '@/shared/ui/Text';
 import styles from './CommentCard.module.scss';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteProfile } from '@/shared/const/router';
 
 interface CommentCardProps {
 	className?: string;
@@ -37,7 +37,7 @@ export const CommentCard: React.FC<CommentCardProps> = ({ className, comment, is
 
 	return (
 		<div className={classNames(styles.CommentCard, {}, [className])}>
-			<AppLink to={`${RoutePath.profile}${comment.user.id}`} className={styles.header}>
+			<AppLink to={getRouteProfile(comment.user.id)} className={styles.header}>
 				{comment.user.avatar && <Avatar src={comment.user.avatar} size={30} />}
 				<Text title={comment.user.username} />
 			</AppLink>

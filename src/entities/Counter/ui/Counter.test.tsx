@@ -9,18 +9,20 @@ describe('Counter component', () => {
 		const couner = screen.getByTestId('value-title');
 		expect(couner).toHaveTextContent('10');
 	});
-	test('increment', () => {
+	test('increment', async () => {
 		componentRender(<Counter />, { initialState: { counter: { value: 10 } } });
+		screen.debug();
 		const couner = screen.getByTestId('value-title');
 		const btn = screen.getByTestId('btn-increment');
-		userEvent.click(btn);
+		await userEvent.click(btn);
+
 		expect(couner).toHaveTextContent('11');
 	});
-	test('decrement', () => {
+	test('decrement', async () => {
 		componentRender(<Counter />, { initialState: { counter: { value: 10 } } });
 		const couner = screen.getByTestId('value-title');
 		const btn = screen.getByTestId('btn-decrement');
-		userEvent.click(btn);
+		await userEvent.click(btn);
 		expect(couner).toHaveTextContent('9');
 	});
 });

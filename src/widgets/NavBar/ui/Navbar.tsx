@@ -13,7 +13,7 @@ import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdow } from '@/features/avatarDropdown';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleCreate } from '@/shared/const/router';
 
 interface NavbarProps {
 	className?: string;
@@ -39,7 +39,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 				<AppLink
 					className={styles.appLink}
 					theme={AppLinkTheme.PRIMARY}
-					to={RoutePath.article_create}
+					to={getRouteArticleCreate()}
 				>
 					{t('create article')}
 				</AppLink>

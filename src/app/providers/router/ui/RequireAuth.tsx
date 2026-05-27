@@ -1,5 +1,5 @@
 import { getUserAuthData, getUserRoles, UserRole } from '@/entities/User';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteForbiden, getRouteMain } from '@/shared/const/router';
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
@@ -25,10 +25,10 @@ export const RequireAuth: React.FC<RequireAuthProps> = ({ children, roles }) => 
 		});
 	}, []);
 	if (!auth) {
-		return <Navigate to={RoutePath.main} state={{ from: location }} replace />;
+		return <Navigate to={getRouteMain()} state={{ from: location }} replace />;
 	}
 	if (!hasRequiredRoles) {
-		return <Navigate to={RoutePath.forbbiden} state={{ from: location }} replace />;
+		return <Navigate to={getRouteForbiden()} state={{ from: location }} replace />;
 	}
 
 	return children;

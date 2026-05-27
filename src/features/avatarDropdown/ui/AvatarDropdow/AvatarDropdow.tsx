@@ -6,7 +6,7 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, isUserAdmin, isUserManager, UserActions } from '@/entities/User';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { Dropdown } from '@/shared/ui/Popups';
 
 interface AvatarDropdowProps {
@@ -38,14 +38,14 @@ export const AvatarDropdow: React.FC<AvatarDropdowProps> = ({ className }) => {
 					...(isAdminPanelAvailable
 						? [
 								{
-									href: RoutePath.admin_panel,
+									href: getRouteAdminPanel(),
 									content: t('Admin'),
 									id: '1'
 								}
 						  ]
 						: []),
 					{
-						href: RoutePath.profile + authData.id,
+						href: getRouteProfile(authData.id),
 						content: t('profile'),
 						id: '2'
 					},

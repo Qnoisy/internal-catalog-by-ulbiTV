@@ -1,5 +1,5 @@
 import { Article, ArticleTextBlock } from '@/entities/Article/model/types/article';
-import React, { HTMLAttributeAnchorTarget, useCallback } from 'react';
+import React, { HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg?react';
@@ -13,7 +13,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import styles from './ArticleListItem.module.scss';
 import { AppLink } from '@/shared/ui/AppLink';
 import { ArticleBlockType, ArticleView } from '@/entities/Article/model/const/const';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
 
 interface ArticleListItemProps {
 	className?: string;
@@ -59,7 +59,7 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = ({
 						<ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
 					)}
 					<div className={styles.footer}>
-						<AppLink target={target} to={RoutePath.article_details + article.id}>
+						<AppLink target={target} to={getRouteArticleDetails(article.id)}>
 							<Button theme={ButtonTheme.OUTLINE}>{t('Read more')}</Button>
 						</AppLink>
 						{views}
@@ -72,7 +72,7 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = ({
 	return (
 		<AppLink
 			target={target}
-			to={RoutePath.article_details + article.id}
+			to={getRouteArticleDetails(article.id)}
 			className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}
 		>
 			<Card className={styles.card}>

@@ -9,45 +9,56 @@ import { ArticleEditPage } from '@/pages/ArticleEditPage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
-import { AppRoutes, RoutePath } from '@/shared/const/router';
+import {
+	AppRoutes,
+	getRouteAbout,
+	getRouteAdminPanel,
+	getRouteArticleCreate,
+	getRouteArticleDetails,
+	getRouteArticleEdit,
+	getRouteArticles,
+	getRouteForbiden,
+	getRouteMain,
+	getRouteProfile
+} from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
 	[AppRoutes.MAIN]: {
-		path: RoutePath.main,
+		path: getRouteMain(),
 		element: <MainPage />
 	},
 	[AppRoutes.ABOUT]: {
-		path: RoutePath.about,
+		path: getRouteAbout(),
 		element: <AboutPage />
 	},
 	[AppRoutes.PROFILE]: {
-		path: `${RoutePath.profile}:id`,
+		path: getRouteProfile(':id'),
 		element: <ProfilePage />,
 		authOnly: true
 	},
 	[AppRoutes.ARTICLES]: {
-		path: RoutePath.articles,
+		path: getRouteArticles(),
 		element: <ArticlesPage />,
 		authOnly: true
 	},
 	[AppRoutes.ARTICLE_DETAILS]: {
-		path: `${RoutePath.article_details}:id`,
+		path: getRouteArticleDetails(':id'),
 		element: <ArticleDetailPage />,
 		authOnly: true
 	},
 	[AppRoutes.ARTICLE_EDIT]: {
-		path: `${RoutePath.article_edit}`,
+		path: getRouteArticleCreate(),
 		element: <ArticleEditPage />,
 		authOnly: true
 	},
 	[AppRoutes.ARTICLE_CREATE]: {
-		path: `${RoutePath.article_create}`,
+		path: getRouteArticleEdit(':id'),
 		element: <ArticleEditPage />,
 		authOnly: true
 	},
 	[AppRoutes.ADMIN_PANEL]: {
-		path: RoutePath.admin_panel,
+		path: getRouteAdminPanel(),
 		element: <AdminPanelPage />,
 		authOnly: true,
 		roles: [UserRole.ADMIN, UserRole.MANAGER]
@@ -55,11 +66,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
 
 	// last
 	[AppRoutes.FORBBIDEN]: {
-		path: RoutePath.forbbiden,
+		path: getRouteForbiden(),
 		element: <ForbiddenPage />
 	},
 	[AppRoutes.NOT_FOUND]: {
-		path: RoutePath.not_found,
+		path: '*',
 		element: <NotFoundPage />
 	}
 };
