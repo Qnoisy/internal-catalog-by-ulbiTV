@@ -3,3 +3,4 @@ Object.assign(globalThis as any, {
 	__IS_DEV__: true,
 	__PROJECT__: 'jest'
 });
+export {};
