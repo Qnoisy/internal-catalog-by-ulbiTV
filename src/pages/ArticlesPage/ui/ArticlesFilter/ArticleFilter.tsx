@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import styles from './ArticlesFilter.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ArticleView, ArticleViewSelector } from '@/entities/Article';
+import { ArticleView } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
 	getArticlePageOrder,
@@ -22,6 +22,7 @@ import { fetchArticlesList } from '@/pages/ArticlesPage/model/service/fetchArtic
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs/ArticleTypeTabs';
 import { ArticleSortField, ArticleType } from '@/entities/Article/model/const/const';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 
 interface ArticlesPageFilterProps {
 	className?: string;

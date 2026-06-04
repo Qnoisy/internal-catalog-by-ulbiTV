@@ -2,8 +2,6 @@ export type { Article, ArticleBlock } from '@/entities/Article/model/types/artic
 
 export { ArticleView } from './model/const/const';
 
-export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
-
 export { getArticleDetailsData } from './model/selectors/getArticleDetails';
 
 export type { ArticleDetailsShema } from './model/types/articleDetailsShema';
