@@ -12,6 +12,7 @@ const MainPage = memo(() => {
 		<Page>
 			{t('main page')}
 			<BugButton />
+			<Counter />
 		</Page>
 	);
 });
