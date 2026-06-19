@@ -14,6 +14,8 @@ import styles from './ArticleListItem.module.scss';
 import { AppLink } from '@/shared/ui/AppLink';
 import { ArticleBlockType, ArticleView } from '@/entities/Article/model/const/const';
 import { getRouteArticleDetails } from '@/shared/const/router';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleListItemProps {
 	className?: string;
@@ -54,7 +56,12 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = ({
 					</div>
 					<Text title={article.title} className={styles.title} />
 					{types}
-					<img src={article.img} className={styles.img} alt={article.title} />
+					<AppImage
+						fallback={<Skeleton width={'100%'} height={250} />}
+						src={article.img}
+						className={styles.img}
+						alt={article.title}
+					/>
 					{textBlock && (
 						<ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
 					)}
@@ -77,7 +84,12 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = ({
 		>
 			<Card className={styles.card}>
 				<div className={styles.imageWrapper}>
-					<img alt={article.title} src={article.img} className={styles.img} />
+					<AppImage
+						fallback={<Skeleton width={200} height={200} />}
+						alt={article.title}
+						src={article.img}
+						className={styles.img}
+					/>
 					<Text text={article.createdAt} className={styles.date} />
 				</div>
 				<div className={styles.infoWrapper}>

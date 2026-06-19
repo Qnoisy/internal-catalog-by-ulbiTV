@@ -55,7 +55,7 @@ export const AvatarDropdow: React.FC<AvatarDropdowProps> = ({ className }) => {
 						id: '3'
 					}
 				]}
-				trigger={<Avatar src={authData.avatar} size={50} />}
+				trigger={<Avatar fallbackInverted={true} src={authData.avatar} size={30} />}
 			/>
 		</div>
 	);
