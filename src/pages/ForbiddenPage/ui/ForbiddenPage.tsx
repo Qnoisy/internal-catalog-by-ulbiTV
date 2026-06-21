@@ -4,7 +4,7 @@ import { Page } from '@/widgets/Page/Page';
 
 const ForbiddenPage = memo(() => {
 	const { t } = useTranslation();
-	return <Page>{t('Error roots')}</Page>;
+	return <Page data-testid='ForbiddenPage'>{t('Error roots')}</Page>;
 });
 
 export default ForbiddenPage;

@@ -12,14 +12,16 @@ import {
 } from '@/features/ScrollSave/model/selectors/getScrollSaveSelectors';
 import type { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
+import { TestData } from '@/shared/types/testing';
 
-interface PageProps {
+interface PageProps extends TestData {
 	className?: string;
 	children: ReactNode;
 	onScrollEnd?: () => void;
 }
 
-export const Page: React.FC<PageProps> = ({ className, children, onScrollEnd }) => {
+export const Page: React.FC<PageProps> = props => {
+	const { className, children, onScrollEnd } = props;
 	const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
 	const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 	const dispatch = useAppDispatch();
@@ -40,6 +42,7 @@ export const Page: React.FC<PageProps> = ({ className, children, onScrollEnd }) 
 
 	return (
 		<section
+			data-testid={props['data-testid'] || 'Page'}
 			ref={wrapperRef}
 			className={classNames(styles.Page, {}, [className])}
 			onScroll={onScroll}
