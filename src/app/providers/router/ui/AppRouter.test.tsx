@@ -32,7 +32,7 @@ describe('./AppRouter.test.tsx', () => {
 	test('Autorization user', async () => {
 		componentRender(<AppRouter />, {
 			route: getRouteProfile('1'),
-			initialState: { user: { _inited: true, authData: {} } }
+			initialState: { user: { _inited: true, authData: { id: '1' } } }
 		});
 
 		const component = await screen.findByTestId('ProfilePage');
@@ -41,7 +41,7 @@ describe('./AppRouter.test.tsx', () => {
 	test('Access denied', async () => {
 		componentRender(<AppRouter />, {
 			route: getRouteAdminPanel(),
-			initialState: { user: { _inited: true, authData: {} } }
+			initialState: { user: { _inited: true, authData: { id: '2' } } }
 		});
 
 		const component = await screen.findByTestId('ForbiddenPage');
