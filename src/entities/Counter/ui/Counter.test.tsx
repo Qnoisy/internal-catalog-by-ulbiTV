@@ -1,4 +1,4 @@
-import { userEvent } from '@storybook/testing-library';
+import userEvent from '@testing-library/user-event';
 import { screen } from '@testing-library/react';
 import { componentRender } from '@/shared/lib/tests/сomponentRender';
 import { Counter } from './Counter';

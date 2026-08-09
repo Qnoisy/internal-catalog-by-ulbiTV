@@ -27,8 +27,6 @@ npm run start:dev or npm run start:dev:vite — start the server + frontend proj
 - `npm run test:ui:report` — Generate a full report for screenshot tests
 - `npm run test:ui:json` — Generate a JSON report for screenshot tests
 - `npm run test:ui:html` — Generate an HTML report for screenshot tests
-- `npm run storybook` — Start Storybook
-- `npm run storybook:build` — Build Storybook
 - `npm run prepare` — Pre-commit hooks
 - `npm run generate:slice` — Script for generating FSD slices
 
@@ -86,53 +84,6 @@ Additionally, for strict enforcement of core architectural principles, a custom 
 
 ---
 
-# Storybook
-
-Story cases are described for every component in the project.
-Server requests are mocked using `storybook-addon-mock`.
-
-The stories file is created next to the component with the `.stories.tsx` extension.
-
-Run Storybook with:
-
-- `npm run storybook`
-
-More details about Storybook — `/docs/storybook.md`
-
-Example:
-
-```tsx
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Button, ButtonSize, ButtonTheme } from './Button';
-import { Theme } from '@/shared/const/theme';
-
-export default {
-	title: 'shared/Button',
-	component: Button,
-	argTypes: {
-		backgroundColor: { control: 'color' }
-	}
-} as ComponentMeta<typeof Button>;
-
-const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-	children: 'Text'
-};
-
-export const Clear = Template.bind({});
-Clear.args = {
-	children: 'Text',
-	theme: ButtonTheme.CLEAR
-};
-```
-
----
-
 # Project Configuration
 
 The project contains 2 configurations for development:
@@ -147,7 +98,6 @@ All configuration files are stored in `/config`:
 - `/config/babel` — Babel configuration
 - `/config/build` — Webpack configuration
 - `/config/jest` — Test environment configuration
-- `/config/storybook` — Storybook configuration
 
 The `scripts` folder contains various scripts for refactoring, simplifying development, generating reports, etc.
 
@@ -157,7 +107,7 @@ The `scripts` folder contains various scripts for refactoring, simplifying devel
 
 GitHub Actions configuration is located in `/.github/workflows`.
 
-CI runs all types of tests, project builds, Storybook builds, and linting.
+CI runs all types of tests, project builds, and linting.
 
 Pre-commit hooks run linters before commits. Configuration is stored in `/.husky`.
 
