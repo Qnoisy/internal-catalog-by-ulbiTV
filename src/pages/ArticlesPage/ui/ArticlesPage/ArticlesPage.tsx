@@ -42,9 +42,11 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
 	}, [dispatch, isLoading, hasMore]);
 
 	return (
-		<DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-			<ArticleInfiniteList onLoadNextpart={onLoadNextpart} />
-		</DynamicModuleLoader>
+		<div data-testid='ArticlesPage'>
+			<DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+				<ArticleInfiniteList onLoadNextpart={onLoadNextpart} />
+			</DynamicModuleLoader>
+		</div>
 	);
 };
 export default memo(ArticlesPage);
